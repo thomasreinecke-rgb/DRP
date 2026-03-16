@@ -1,14 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
+
 <head>
 <meta charset="UTF-8">
-<title>DRP</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dederichs Reinecke & Partner</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#0f172a;
+color:white;
+}
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:30px 60px;
+background:black;
+}
+
+.logo{
+font-size:22px;
+font-weight:bold;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+opacity:0.8;
+}
+
+.hero{
+height:80vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:linear-gradient(120deg,#1e3a8a,#020617);
+}
+
+.hero h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:20px;
+opacity:0.8;
+}
+
+.section{
+padding:80px;
+text-align:center;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.card{
+background:#1e293b;
+padding:30px;
+border-radius:10px;
+}
+
+</style>
+
 </head>
 
 <body>
 
+<header>
+
+<div class="logo">
+DRP
+</div>
+
+<nav>
+<a href="#">Home</a>
+<a href="#">Leistungen</a>
+<a href="#">Kontakt</a>
+</nav>
+
+</header>
+
+<section class="hero">
+
 <h1>Dederichs Reinecke & Partner</h1>
+
 <p>PR · Cleantech · Crisis</p>
+
+</section>
+
+<section class="section">
+
+<h2>Leistungen</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>FMCG & Lifestyle</h3>
+<p>Strategische Kommunikation für Marken.</p>
+</div>
+
+<div class="card">
+<h3>Cleantech</h3>
+<p>Positionierung für Energie, Mobilität und Transformation.</p>
+</div>
+
+<div class="card">
+<h3>Krisenkommunikation</h3>
+<p>Strategie und Kommunikation in kritischen Situationen.</p>
+</div>
+
+</div>
+
+</section>
 
 </body>
 </html>
