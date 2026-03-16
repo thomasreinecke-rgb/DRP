@@ -38,9 +38,9 @@
 
         .hero-title {
             font-weight: 900;
-            line-height: 0.82;
+            line-height: 0.95;
             letter-spacing: -0.05em;
-            font-size: clamp(3.5rem, 11vw, 9.5rem);
+            font-size: clamp(3rem, 8vw, 7.5rem);
             text-transform: uppercase;
         }
 
@@ -63,7 +63,6 @@
             box-shadow: 0 30px 60px -12px rgba(0,0,0,0.15);
         }
 
-        /* Case Card Design */
         .case-card {
             position: relative;
             transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -86,7 +85,6 @@
             background-position: center;
             transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
             z-index: 1;
-            /* Subtiler Background-Placeholder Effekt */
             background-color: #222;
         }
 
@@ -124,14 +122,13 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Sektor-Farben für Placeholder */
         .ph-cleantech { border-top: 4px solid var(--color-emerald); }
         .ph-food { border-top: 4px solid var(--color-orange); }
         .ph-family { border-top: 4px solid var(--color-indigo); }
         .ph-crisis { border-top: 4px solid var(--color-slate); }
 
         @media (max-width: 768px) {
-            .hero-title { font-size: 4rem; }
+            .hero-title { font-size: 3.5rem; }
             .grid-card { min-height: 400px; padding: 2rem; }
         }
     </style>
@@ -155,9 +152,9 @@
             <div class="max-w-[1600px] mx-auto w-full pt-32">
                 <span class="text-emerald-500 font-black tracking-[0.3em] text-xs uppercase mb-6 block">Strategische Kommunikation</span>
                 <h1 class="hero-title text-black">
-                    DIALOG FÜR <br>
-                    DEN ECHTEN <br>
-                    <span class="text-emerald-500">WANDEL.</span>
+                    KOMMUNIKATION FÜR <br>
+                    MARKEN UND UNTERNEHMEN <br>
+                    <span class="text-emerald-500">IM WANDEL.</span>
                 </h1>
                 <p class="mt-12 text-2xl md:text-3xl text-gray-400 max-w-2xl font-medium leading-tight">
                     Wir machen Innovationen greifbar, Marken nahbar und Krisen beherrschbar.
@@ -192,7 +189,7 @@
         </section>
     </main>
 
-    <!-- SECTOR VIEW (Dynamische Case-Anzeige) -->
+    <!-- SECTOR VIEW -->
     <main id="sector-view" class="view-hidden pt-40 px-8 pb-24 fade-in">
         <div class="max-w-[1600px] mx-auto">
             <div class="mb-20">
@@ -207,11 +204,6 @@
     </main>
 
     <script>
-        /**
-         * Case-Datenbank
-         * Anleitung: Ersetze die 'img' Pfade durch deine Dateinamen aus dem SharePoint.
-         * Beispiel: img: 'assets/hy2gen-case.jpg'
-         */
         const sectorData = {
             cleantech: {
                 title: "Clean Tech",
@@ -219,7 +211,7 @@
                 phClass: "ph-cleantech",
                 cases: [
                     { name: "Hy2gen", cat: "Hydrogen", img: "assets/hy2gen.jpg" },
-                    { name: "Torqeedo", cat: "e-Boats", img: "assets/torqeedo.jpg" },
+                    { name: "Torqeedo", cat: "e-Boats", img: "image_b9086b.jpg" },
                     { name: "Choco", cat: "AgriTech", img: "assets/choco.jpg" },
                     { name: "Sono Motors", cat: "Solar", img: "assets/sono.jpg" },
                     { name: "Fastned", cat: "Charging", img: "assets/fastned.jpg" },
@@ -236,69 +228,4 @@
                     { name: "Magnum", cat: "Ice Cream", img: "assets/magnum.jpg" },
                     { name: "Don Papa", cat: "Spirits", img: "assets/donpapa.jpg" },
                     { name: "Baileys", cat: "Lifestyle", img: "assets/baileys.jpg" },
-                    { name: "Parmigiano", cat: "Tradition", img: "assets/parmigiano.jpg" },
-                    { name: "Bonne Maman", cat: "Gourmet", img: "assets/bonnemaman.jpg" },
-                    { name: "Pick", cat: "Food", img: "assets/pick.jpg" },
-                    { name: "Maille", cat: "Dijon", img: "assets/maille.jpg" },
-                    { name: "Chivers", cat: "Jam", img: "assets/chivers.jpg" }
-                ]
-            },
-            family: {
-                title: "Family",
-                desc: "Wir kennen die Zielgruppe Familie und wissen, wie man Vertrauen aufbaut.",
-                phClass: "ph-family",
-                cases: [
-                    { name: "Ergobaby", cat: "Care", img: "assets/ergobaby.jpg" },
-                    { name: "Baby Tula", cat: "Fashion", img: "assets/babytula.jpg" },
-                    { name: "Aeromoov", cat: "Travel", img: "assets/aeromoov.jpg" },
-                    { name: "Aerosleep", cat: "Sleep", img: "assets/aerosleep.jpg" },
-                    { name: "Ideenexpo", cat: "Event", img: "assets/ideenexpo.jpg" }
-                ]
-            },
-            crisis: {
-                title: "Change",
-                desc: "Souveränität in der Krise. Wir schützen Ihre Reputation, wenn es darauf ankommt.",
-                phClass: "ph-crisis",
-                cases: [
-                    { name: "Landeskrankenhaus", cat: "Health", img: "assets/lkh.jpg" },
-                    { name: "Krs. Sparkasse", cat: "Finance", img: "assets/sparkasse.jpg" },
-                    { name: "Change Strategy", cat: "Consulting", img: "assets/change.jpg" }
-                ]
-            }
-        };
-
-        function showView(view, sid) {
-            document.getElementById('home-view').classList.toggle('view-hidden', view !== 'home');
-            document.getElementById('sector-view').classList.toggle('view-hidden', view !== 'sector');
-            if (view === 'sector') loadSector(sid);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function loadSector(id) {
-            const data = sectorData[id];
-            document.getElementById('sector-title').innerText = data.title;
-            document.getElementById('sector-desc').innerText = data.desc;
-            const grid = document.getElementById('case-grid');
-            grid.innerHTML = '';
-            
-            data.cases.forEach((c, i) => {
-                const card = document.createElement('div');
-                card.className = `case-card ${data.phClass} fade-in`;
-                card.style.animationDelay = `${i * 0.1}s`;
-                card.innerHTML = `
-                    <div class="case-bg" style="background-image: url('${c.img}'), url('https://via.placeholder.com/800x600/111/444?text=${c.name}')"></div>
-                    <div class="case-overlay"></div>
-                    <div class="case-content">
-                        <span class="text-[10px] font-black uppercase tracking-[0.2em] text-white/50 mb-2 block">${c.cat}</span>
-                        <h3 class="text-3xl font-black uppercase tracking-tighter leading-none">${c.name}</h3>
-                        <div class="mt-6 flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                            Case ansehen <i class="fa-solid fa-arrow-right"></i>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-    </script>
-</body>
-</html>
+                    { name: "Parmigiano", cat: "Tradition", img: "assets/parmigiano.jpg
