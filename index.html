@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>_drp | Kommunikation für den Wandel</title>
+    <title>_drp | Cleantech & Mobility Fokus</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -26,7 +26,7 @@
             height: 5px;
             margin-right: 6px;
             vertical-align: middle;
-            background-color: #27AE60; /* Startet mit Cleantech-Grün */
+            background-color: #27AE60; 
             animation: blink 1.2s infinite;
         }
 
@@ -40,26 +40,26 @@
             overflow: hidden;
         }
 
+        .case-card:hover {
+            transform: translateY(-8px);
+        }
+
         .case-card:hover img {
             transform: scale(1.05);
         }
 
-        .bg-food { background-color: #E67E22; }
-        .bg-cleantech { background-color: #27AE60; }
-        .bg-crisis { background-color: #2C3E50; }
-        
-        .text-food { color: #E67E22; }
         .text-cleantech { color: #27AE60; }
-        .text-crisis { color: #2C3E50; }
+        .bg-cleantech { background-color: #27AE60; }
 
-        .client-logo {
-            filter: grayscale(100%);
-            opacity: 0.6;
-            transition: all 0.3s ease;
+        .hero-bg {
+            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 40px 40px;
         }
-        .client-logo:hover {
-            filter: grayscale(0%);
-            opacity: 1;
+
+        .case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
         }
     </style>
 </head>
@@ -72,137 +72,154 @@
                 <span class="cursor-underscore"></span>
                 <span>drp</span>
             </div>
-            <div class="hidden md:flex space-x-10 text-sm font-bold uppercase tracking-widest">
+            <div class="hidden md:flex space-x-10 text-sm font-bold uppercase tracking-widest text-gray-900">
                 <a href="#expertise" class="hover:text-cleantech transition">Expertise</a>
-                <a href="#cases" class="hover:text-food transition">Cases</a>
-                <a href="#agentur" class="hover:text-crisis transition">Agentur</a>
-                <a href="#kontakt" class="bg-gray-900 text-white px-6 py-2 rounded-full">Kontakt</a>
+                <a href="#cases" class="hover:text-cleantech transition">Cleantech Cases</a>
+                <a href="#agentur" class="hover:text-gray-600 transition">Agentur</a>
+                <a href="#kontakt" class="bg-gray-900 text-white px-6 py-2 rounded-full hover:bg-cleantech transition">Kontakt</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="pt-40 pb-24 px-6">
+    <!-- Hero Section -->
+    <header class="pt-48 pb-20 px-6 hero-bg">
         <div class="max-w-7xl mx-auto">
-            <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-10">
-                Wir machen <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cleantech via-food to-crisis">Themen zu Trends.</span>
+            <div class="inline-block px-4 py-2 bg-green-50 text-cleantech rounded-full text-xs font-bold uppercase tracking-widest mb-6 border border-green-100">
+                Fokus: Cleantech & Mobility
+            </div>
+            <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-10 text-gray-900">
+                Innovationen für eine <br>
+                <span class="text-cleantech">fossilfreie Zukunft.</span>
             </h1>
             <p class="text-xl text-gray-500 max-w-2xl leading-relaxed mb-12">
-                Dederichs Reinecke & Partner ist die Agentur für Marken im Umbruch. Ob nachhaltige Energie, moderne Ernährung oder strategischer Wandel – wir liefern die Story dazu.
+                Dederichs Reinecke & Partner ist die spezialisierte Kommunikationsagentur für Tech-Pioniere. Wir übersetzen komplexe Technologien in überzeugende Narrative.
             </p>
-            
-            <!-- Quick Link Icons -->
-            <div class="flex gap-8 text-gray-400">
-                <div class="flex items-center gap-2"><i class="fa-solid fa-location-dot"></i> Hamburg</div>
-                <div class="flex items-center gap-2"><i class="fa-solid fa-users"></i> 30+ Experten</div>
-                <div class="flex items-center gap-2"><i class="fa-solid fa-award"></i> Award Winning</div>
-            </div>
         </div>
     </header>
 
-    <!-- Client Logo Bar -->
-    <section class="py-12 border-y border-gray-100 bg-gray-50/50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-wrap justify-between items-center gap-8 md:gap-4">
-                <!-- Ersetzt durch bekannte Logos aus den Referenzen -->
-                <div class="font-bold text-xl client-logo uppercase tracking-tighter">Oatly</div>
-                <div class="font-bold text-xl client-logo uppercase tracking-tighter">Vattenfall</div>
-                <div class="font-bold text-xl client-logo uppercase tracking-tighter">TIER Mobility</div>
-                <div class="font-bold text-xl client-logo uppercase tracking-tighter">Rügenwalder Mühle</div>
-                <div class="font-bold text-xl client-logo uppercase tracking-tighter">Yfood</div>
-                <div class="font-bold text-xl client-logo uppercase tracking-tighter">Budni</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cases Section -->
-    <section id="cases" class="py-24 px-6">
+    <!-- Cleantech Cases Showcase -->
+    <section id="cases" class="py-24 px-6 bg-gray-50">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                <div>
-                    <h2 class="text-4xl font-black mb-4 tracking-tight">Ausgewählte Cases</h2>
-                    <p class="text-gray-500">Erfolge, die wir gemeinsam mit unseren Kunden feiern.</p>
-                </div>
-                <div class="flex gap-2">
-                    <button class="px-4 py-2 bg-gray-100 rounded-full text-xs font-bold uppercase">Alle</button>
-                    <button class="px-4 py-2 hover:bg-gray-100 rounded-full text-xs font-bold uppercase transition">Food</button>
-                    <button class="px-4 py-2 hover:bg-gray-100 rounded-full text-xs font-bold uppercase transition">Cleantech</button>
-                </div>
+            <div class="mb-16">
+                <h2 class="text-5xl font-black mb-4 tracking-tight text-gray-900">Cleantech Expertise</h2>
+                <p class="text-gray-500 text-lg">Kommunikation für die Wegbereiter der globalen Transformation.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="case-grid">
                 
-                <!-- Case 1: Cleantech (Vattenfall / TIER) -->
-                <div class="case-card group cursor-pointer">
-                    <div class="aspect-[16/10] bg-gray-200 rounded-[2rem] mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1506919227144-193910547ef2?auto=format&fit=crop&q=80&w=800" alt="Cleantech Image" class="w-full h-full object-cover transition duration-700">
-                        <div class="absolute top-6 left-6 px-4 py-2 bg-cleantech text-white text-xs font-bold rounded-full uppercase tracking-widest">Cleantech</div>
+                <!-- Choco -->
+                <div class="case-card group bg-white p-4 rounded-[2.5rem] shadow-sm">
+                    <div class="aspect-video bg-gray-100 rounded-[2rem] mb-6 overflow-hidden relative">
+                        <img src="https://www.dr-p.de/wp-content/uploads/2021/04/drp-case-choco-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1495521821757-a1efb6729352?auto=format&fit=crop&q=80&w=800'" alt="[Bild von Choco]" class="w-full h-full object-cover transition duration-700">
                     </div>
-                    <h3 class="text-2xl font-bold mb-2 group-hover:text-cleantech transition">Die Mobilitätswende erlebbar machen</h3>
-                    <p class="text-gray-500 mb-4">Wie wir TIER Mobility zum Marktführer in der öffentlichen Wahrnehmung gemacht haben.</p>
-                    <span class="text-sm font-bold border-b-2 border-cleantech pb-1">Case Study lesen</span>
+                    <div class="px-4 pb-4">
+                        <div class="text-cleantech font-bold text-xs uppercase tracking-widest mb-2">Food Waste Tech</div>
+                        <h3 class="text-2xl font-black mb-3">Choco</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Digitalisierung der Lieferketten zur Vermeidung von Lebensmittelverschwendung in der Gastronomie.</p>
+                    </div>
                 </div>
 
-                <!-- Case 2: Food (Oatly / Rügenwalder) -->
-                <div class="case-card group cursor-pointer">
-                    <div class="aspect-[16/10] bg-gray-200 rounded-[2rem] mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=800" alt="Food Innovation Image" class="w-full h-full object-cover transition duration-700">
-                        <div class="absolute top-6 left-6 px-4 py-2 bg-food text-white text-xs font-bold rounded-full uppercase tracking-widest">Food & FMCG</div>
+                <!-- Lime -->
+                <div class="case-card group bg-white p-4 rounded-[2.5rem] shadow-sm">
+                    <div class="aspect-video bg-gray-100 rounded-[2rem] mb-6 overflow-hidden relative">
+                        <img src="https://www.dr-p.de/wp-content/uploads/2021/04/drp-case-lime-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&q=80&w=800'" alt="[Bild von Lime]" class="w-full h-full object-cover transition duration-700">
                     </div>
-                    <h3 class="text-2xl font-bold mb-2 group-hover:text-food transition">Revolution im Kühlregal</h3>
-                    <p class="text-gray-500 mb-4">Markteinführung und PR-Strategie für innovative Food-Startups und etablierte Größen.</p>
-                    <span class="text-sm font-bold border-b-2 border-food pb-1">Case Study lesen</span>
+                    <div class="px-4 pb-4">
+                        <div class="text-cleantech font-bold text-xs uppercase tracking-widest mb-2">Micro-Mobility</div>
+                        <h3 class="text-2xl font-black mb-3">Lime</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Strategische PR für den weltweit führenden Anbieter von geteilter E-Mobilität in urbanen Räumen.</p>
+                    </div>
                 </div>
 
-                <!-- Case 3: Crisis/Strategy -->
-                <div class="case-card group cursor-pointer">
-                    <div class="aspect-[16/10] bg-gray-200 rounded-[2rem] mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1454165833767-027ffea70250?auto=format&fit=crop&q=80&w=800" alt="Strategy Image" class="w-full h-full object-cover transition duration-700">
-                        <div class="absolute top-6 left-6 px-4 py-2 bg-crisis text-white text-xs font-bold rounded-full uppercase tracking-widest">Change & Krise</div>
+                <!-- Hy2gen -->
+                <div class="case-card group bg-white p-4 rounded-[2.5rem] shadow-sm">
+                    <div class="aspect-video bg-gray-100 rounded-[2rem] mb-6 overflow-hidden relative">
+                        <img src="https://www.dr-p.de/wp-content/uploads/2021/04/drp-case-hy2gen-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1509391366360-fe5bb584850a?auto=format&fit=crop&q=80&w=800'" alt="[Bild von Hy2gen]" class="w-full h-full object-cover transition duration-700">
                     </div>
-                    <h3 class="text-2xl font-bold mb-2 group-hover:text-crisis transition">Souverän durch die Transformation</h3>
-                    <p class="text-gray-500 mb-4">Strategische Begleitung von Corporate Change Prozessen für DAX-Konzerne.</p>
-                    <span class="text-sm font-bold border-b-2 border-crisis pb-1">Case Study lesen</span>
+                    <div class="px-4 pb-4">
+                        <div class="text-cleantech font-bold text-xs uppercase tracking-widest mb-2">Green Hydrogen</div>
+                        <h3 class="text-2xl font-black mb-3">Hy2gen</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Positionierung des Vorreiters für grünen Wasserstoff und E-Fuels im globalen Industriemarkt.</p>
+                    </div>
                 </div>
 
-                <!-- Case 4: Lifestyle/FMCG -->
-                <div class="case-card group cursor-pointer">
-                    <div class="aspect-[16/10] bg-gray-200 rounded-[2rem] mb-6 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800" alt="Marketing Image" class="w-full h-full object-cover transition duration-700">
-                        <div class="absolute top-6 left-6 px-4 py-2 bg-gray-900 text-white text-xs font-bold rounded-full uppercase tracking-widest">Digital Campaign</div>
+                <!-- rebuy -->
+                <div class="case-card group bg-white p-4 rounded-[2.5rem] shadow-sm">
+                    <div class="aspect-video bg-gray-100 rounded-[2rem] mb-6 overflow-hidden relative">
+                        <img src="https://www.dr-p.de/wp-content/uploads/2021/04/drp-case-rebuy-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1550009158-9ebf69173e03?auto=format&fit=crop&q=80&w=800'" alt="[Bild von rebuy]" class="w-full h-full object-cover transition duration-700">
                     </div>
-                    <h3 class="text-2xl font-bold mb-2 group-hover:opacity-70 transition">Data Driven PR</h3>
-                    <p class="text-gray-500 mb-4">Digitale Kampagnenführung mit messbarem Impact auf Brand-Awareness und Sales.</p>
-                    <span class="text-sm font-bold border-b-2 border-gray-900 pb-1">Case Study lesen</span>
+                    <div class="px-4 pb-4">
+                        <div class="text-cleantech font-bold text-xs uppercase tracking-widest mb-2">Circular Economy</div>
+                        <h3 class="text-2xl font-black mb-3">rebuy</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Förderung der Kreislaufwirtschaft durch Kommunikation für den Marktführer im Recommerce.</p>
+                    </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
+                <!-- Torqeedo -->
+                <div class="case-card group bg-white p-4 rounded-[2.5rem] shadow-sm">
+                    <div class="aspect-video bg-gray-100 rounded-[2rem] mb-6 overflow-hidden relative">
+                        <img src="https://www.dr-p.de/wp-content/uploads/2021/04/drp-case-torqeedo-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&q=80&w=800'" alt="[Bild von Torqeedo]" class="w-full h-full object-cover transition duration-700">
+                    </div>
+                    <div class="px-4 pb-4">
+                        <div class="text-cleantech font-bold text-xs uppercase tracking-widest mb-2">Marine Mobility</div>
+                        <h3 class="text-2xl font-black mb-3">Torqeedo</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Globale Kommunikation für den Weltmarktführer für elektrische Bootsantriebe.</p>
+                    </div>
+                </div>
 
-    <!-- CTA Section -->
-    <section id="kontakt" class="py-24 bg-gray-900 text-white">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <h2 class="text-5xl font-black mb-8">Bereit für Ihren Case?</h2>
-            <p class="text-gray-400 text-lg mb-12 max-w-xl mx-auto">Lassen Sie uns gemeinsam herausfinden, wie wir Ihre Geschichte am besten erzählen können.</p>
-            <div class="flex flex-col md:flex-row justify-center gap-6">
-                <a href="mailto:office@dr-p.de" class="px-10 py-5 bg-cleantech text-white font-bold rounded-full hover:scale-105 transition transform">Strategiegespräch buchen</a>
-                <a href="#" class="px-10 py-5 border border-gray-700 text-white font-bold rounded-full hover:bg-gray-800 transition">Team kennenlernen</a>
+                <!-- Sono Motors -->
+                <div class="case-card group bg-white p-4 rounded-[2.5rem] shadow-sm">
+                    <div class="aspect-video bg-gray-100 rounded-[2rem] mb-6 overflow-hidden relative">
+                        <img src="https://www.dr-p.de/wp-content/uploads/2021/04/drp-case-sono-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&q=80&w=800'" alt="[Bild von Sono Motors]" class="w-full h-full object-cover transition duration-700">
+                    </div>
+                    <div class="px-4 pb-4">
+                        <div class="text-cleantech font-bold text-xs uppercase tracking-widest mb-2">Solar Mobility</div>
+                        <h3 class="text-2xl font-black mb-3">Sono Motors</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Begleitung der solaren Mobilitätsrevolution durch integrierte PR-Kampagnen.</p>
+                    </div>
+                </div>
+
+                <!-- Trion -->
+                <div class="case-card group bg-white p-4 rounded-[2.5rem] shadow-sm">
+                    <div class="aspect-video bg-gray-100 rounded-[2rem] mb-6 overflow-hidden relative">
+                        <div class="w-full h-full bg-gray-100 flex items-center justify-center text-gray-300">
+                             <i class="fa-solid fa-industry text-5xl"></i>
+                        </div>
+                    </div>
+                    <div class="px-4 pb-4">
+                        <div class="text-cleantech font-bold text-xs uppercase tracking-widest mb-2">Energy Solutions</div>
+                        <h3 class="text-2xl font-black mb-3">Trion</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Strategische Beratung für intelligente Energielösungen und Effizienztechnologien.</p>
+                    </div>
+                </div>
+
+                <!-- GAC -->
+                <div class="case-card group bg-white p-4 rounded-[2.5rem] shadow-sm">
+                    <div class="aspect-video bg-gray-100 rounded-[2rem] mb-6 overflow-hidden relative">
+                        <div class="w-full h-full bg-gray-100 flex items-center justify-center text-gray-300">
+                             <i class="fa-solid fa-car-side text-5xl"></i>
+                        </div>
+                    </div>
+                    <div class="px-4 pb-4">
+                        <div class="text-cleantech font-bold text-xs uppercase tracking-widest mb-2">Global Mobility</div>
+                        <h3 class="text-2xl font-black mb-3">GAC Motor</h3>
+                        <p class="text-gray-500 text-sm leading-relaxed">Markenpositionierung und europäische PR-Strategie für einen der führenden Mobilitätskonzerne.</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-gray-100">
+    <footer class="py-12 border-t border-gray-100 bg-white">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs font-bold text-gray-400 uppercase tracking-widest">
-            <div class="flex items-center">
-                <span class="w-2 h-2 bg-cleantech rounded-full mr-2"></span> _drp Hamburg
+            <div class="flex items-center mb-4 md:mb-0">
+                <span class="cursor-underscore bg-cleantech !w-3 !h-1 mr-2"></span> drp Cleantech Unit
             </div>
-            <div class="flex gap-8 my-6 md:my-0">
-                <a href="#" class="hover:text-gray-900">Impressum</a>
-                <a href="#" class="hover:text-gray-900">Datenschutz</a>
-                <a href="#" class="hover:text-gray-900">LinkedIn</a>
+            <div class="flex gap-8 mb-4 md:mb-0">
+                <a href="https://www.dr-p.de/impressum/" target="_blank" class="hover:text-gray-900">Impressum</a>
+                <a href="https://www.dr-p.de/datenschutz/" target="_blank" class="hover:text-gray-900">Datenschutz</a>
             </div>
             <div>© 2024 Dederichs Reinecke & Partner</div>
         </div>
