@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap');
         
         :root {
             --color-emerald: #065f46;
@@ -21,6 +21,7 @@
             background-color: #000;
             color: #fff;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
         .logo-text {
@@ -36,55 +37,59 @@
 
         .hero-title {
             font-weight: 900;
-            line-height: 0.85;
+            line-height: 0.82;
             letter-spacing: -0.05em;
-            font-size: clamp(3.5rem, 12vw, 10rem);
+            font-size: clamp(3.5rem, 11vw, 9.5rem);
             text-transform: uppercase;
         }
 
-        .outline-text {
-            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
-            color: transparent;
+        /* Entfernung der Outline für mehr Substanz */
+        .solid-text {
+            color: #fff;
+        }
+
+        .accent-text {
+            color: #444; /* Dezenterer Wandel-Effekt als die Outline */
         }
 
         /* Expertise Bento Grid */
         .grid-card {
-            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
             overflow: hidden;
-            min-height: 500px;
+            min-height: 520px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 3rem;
-            border-radius: 0.5rem;
+            padding: 3.5rem;
+            border-radius: 0.25rem;
         }
 
         .grid-card:hover {
-            transform: scale(0.99);
-            border-radius: 3rem;
+            transform: scale(0.985);
+            border-radius: 2.5rem;
         }
 
         .icon-bg {
             position: absolute;
-            top: 2rem;
-            right: 2rem;
-            font-size: 4rem;
-            opacity: 0.2;
+            top: 2.5rem;
+            right: 2.5rem;
+            font-size: 3.5rem;
+            opacity: 0.15;
         }
 
         .nav-link {
-            font-weight: 700;
-            font-size: 0.75rem;
+            font-weight: 800;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.25em;
         }
 
-        /* US/UK Agency Colors */
-        .bg-emerald { background-color: #064e3b; color: #ecfdf5; }
-        .bg-terracotta { background-color: #7c2d12; color: #fff7ed; }
-        .bg-indigo { background-color: #312e81; color: #eef2ff; }
-        .bg-slate { background-color: #111827; color: #f9fafb; }
+        /* Deep Global Agency Colors */
+        .bg-emerald { background-color: #042f2e; color: #5eead4; }
+        .bg-terracotta { background-color: #431407; color: #ffedd5; }
+        .bg-indigo { background-color: #1e1b4b; color: #c7d2fe; }
+        .bg-slate { background-color: #0f172a; color: #f1f5f9; }
 
         .reveal-btn {
             width: fit-content;
@@ -93,12 +98,13 @@
             font-weight: 900;
             text-transform: uppercase;
             font-size: 0.7rem;
-            letter-spacing: 0.1em;
-            transition: padding-left 0.3s ease;
+            letter-spacing: 0.15em;
+            transition: all 0.3s ease;
         }
 
         .reveal-btn:hover {
-            padding-left: 1rem;
+            letter-spacing: 0.25em;
+            opacity: 0.7;
         }
 
         .section-header {
@@ -111,41 +117,48 @@
             font-size: 0.8rem;
             font-weight: 900;
             color: #27AE60;
+            letter-spacing: 0.1em;
+        }
+
+        .gradient-bg {
+            background: radial-gradient(circle at 50% -20%, #1a1a1a 0%, #000 100%);
         }
 
     </style>
 </head>
-<body>
+<body class="gradient-bg">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 px-8 py-10 flex justify-between items-center">
+    <nav class="fixed w-full z-50 px-8 py-8 flex justify-between items-center bg-black/50 backdrop-blur-md">
         <div class="logo-text">
             <span class="brand-marker">//</span>drp
         </div>
         <div class="hidden md:flex gap-12 items-center">
-            <a href="#expertise" class="nav-link hover:text-green-500">Expertise</a>
-            <a href="#agency" class="nav-link hover:text-green-500">Agency</a>
-            <a href="#contact" class="nav-link px-6 py-3 bg-white text-black rounded-full hover:bg-green-500 hover:text-white transition-all">Talk to us</a>
+            <a href="#expertise" class="nav-link hover:text-green-500 transition-colors">Expertise</a>
+            <a href="#agency" class="nav-link hover:text-green-500 transition-colors">Agentur</a>
+            <a href="#contact" class="nav-link px-7 py-3.5 bg-white text-black rounded-sm hover:bg-green-600 hover:text-white transition-all">Kontakt</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="min-h-screen flex flex-col justify-center px-8">
-        <div class="max-w-[1600px] mx-auto w-full pt-20">
+        <div class="max-w-[1600px] mx-auto w-full pt-32">
             <h1 class="hero-title">
-                STRATEGIE <br>
-                <span class="outline-text">FÜR MARKEN</span> <br>
-                IM WANDEL.
+                KOMMUNIKATION <br>
+                <span class="solid-text">FÜR MARKEN UND</span> <br>
+                <span class="solid-text">UNTERNEHMEN</span> <br>
+                <span class="text-green-600">IM WANDEL.</span>
             </h1>
             
-            <div class="mt-16 grid grid-cols-1 md:grid-cols-12 gap-10">
-                <div class="md:col-start-7 md:col-span-5">
-                    <p class="text-2xl md:text-3xl font-medium leading-tight text-gray-400">
-                        In einer Welt im Umbruch gestalten wir die Narrative, die Märkte führen und Vertrauen sichern.
+            <div class="mt-20 grid grid-cols-1 md:grid-cols-12 gap-12">
+                <div class="md:col-start-7 md:col-span-6">
+                    <p class="text-2xl md:text-4xl font-light leading-tight text-gray-400 tracking-tight">
+                        In einer Zeit radikaler Umbrüche gestalten wir die Narrative, die Märkte führen und Zukunftsfähigkeit sichern.
                     </p>
-                    <div class="mt-10 flex gap-4 text-xs font-black uppercase tracking-widest">
-                        <span class="flex items-center gap-2"><div class="w-2 h-2 bg-green-500 rounded-full"></div> Hamburg</span>
-                        <span class="flex items-center gap-2"><div class="w-2 h-2 bg-green-500 rounded-full"></div> Global Reach</span>
+                    <div class="mt-12 flex flex-wrap gap-8 text-[10px] font-black uppercase tracking-[0.3em] text-gray-500">
+                        <span class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-green-500"></div> Hamburg HQ</span>
+                        <span class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-green-500"></div> Strategische PR</span>
+                        <span class="flex items-center gap-3"><div class="w-1.5 h-1.5 bg-green-500"></div> Seit 1994</span>
                     </div>
                 </div>
             </div>
@@ -153,58 +166,58 @@
     </section>
 
     <!-- Expertise Grid -->
-    <section id="expertise" class="py-10 px-4">
+    <section id="expertise" class="py-16 px-4">
         <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
             
             <!-- 01 Cleantech -->
             <div class="grid-card bg-emerald">
                 <div class="section-header">
-                    <span>// 01</span>
-                    <i class="fa-solid fa-wind icon-bg"></i>
+                    <span>// 01 SEKTOR</span>
+                    <i class="fa-solid fa-leaf icon-bg"></i>
                 </div>
                 <div>
-                    <h2 class="text-6xl font-black mb-6 leading-none">CLEAN <br>TECH</h2>
-                    <p class="text-xl max-w-sm opacity-80 mb-8">Wir übersetzen die Energiewende in gesellschaftliche Akzeptanz.</p>
-                    <a href="#" class="reveal-btn">Case Studies</a>
+                    <h2 class="text-6xl font-black mb-6 leading-none tracking-tighter uppercase">CLEAN <br>TECH</h2>
+                    <p class="text-xl max-w-sm opacity-80 mb-10 font-medium">Akzeptanz schaffen für die Technologien von morgen.</p>
+                    <a href="#" class="reveal-btn">Projekt-Insights</a>
                 </div>
             </div>
 
             <!-- 02 Food -->
             <div class="grid-card bg-terracotta">
                 <div class="section-header">
-                    <span>// 02</span>
-                    <i class="fa-solid fa-bowl-food icon-bg"></i>
+                    <span>// 02 SEKTOR</span>
+                    <i class="fa-solid fa-utensils icon-bg"></i>
                 </div>
                 <div>
-                    <h2 class="text-6xl font-black mb-6 leading-none">FOOD & <br>LIFESTYLE</h2>
-                    <p class="text-xl max-w-sm opacity-80 mb-8">Markenführung für eine bewusstere Konsumwelt.</p>
-                    <a href="#" class="reveal-btn">Explore Work</a>
+                    <h2 class="text-6xl font-black mb-6 leading-none tracking-tighter uppercase">FOOD & <br>LIFESTYLE</h2>
+                    <p class="text-xl max-w-sm opacity-80 mb-10 font-medium">Kulturprägende Kommunikation für bewussten Konsum.</p>
+                    <a href="#" class="reveal-btn">Unsere Cases</a>
                 </div>
             </div>
 
             <!-- 03 Family -->
             <div class="grid-card bg-indigo">
                 <div class="section-header">
-                    <span>// 03</span>
-                    <i class="fa-solid fa-people-roof icon-bg"></i>
+                    <span>// 03 SEKTOR</span>
+                    <i class="fa-solid fa-heart icon-bg"></i>
                 </div>
                 <div>
-                    <h2 class="text-6xl font-black mb-6 leading-none">FAMILY <br>CONSUMER</h2>
-                    <p class="text-xl max-w-sm opacity-80 mb-8">Empathische Kommunikation für die nächste Generation.</p>
-                    <a href="#" class="reveal-btn">View Insights</a>
+                    <h2 class="text-6xl font-black mb-6 leading-none tracking-tighter uppercase">FAMILY <br>CONSUMER</h2>
+                    <p class="text-xl max-w-sm opacity-80 mb-10 font-medium">Vertrauen bilden in der Zielgruppe Familie.</p>
+                    <a href="#" class="reveal-btn">Branchen-Fokus</a>
                 </div>
             </div>
 
             <!-- 04 Crisis -->
-            <div class="grid-card bg-slate">
+            <div class="grid-card bg-slate border border-white/5">
                 <div class="section-header">
-                    <span>// 04</span>
-                    <i class="fa-solid fa-shield-virus icon-bg"></i>
+                    <span>// 04 SEKTOR</span>
+                    <i class="fa-solid fa-shield-halved icon-bg"></i>
                 </div>
                 <div>
-                    <h2 class="text-6xl font-black mb-6 leading-none">CHANGE <br>& CRISIS</h2>
-                    <p class="text-xl max-w-sm opacity-80 mb-8">Navigation durch kritische Transformationsphasen.</p>
-                    <a href="#" class="reveal-btn">Strategy Audit</a>
+                    <h2 class="text-6xl font-black mb-6 leading-none tracking-tighter uppercase">CHANGE <br>& KRISEN</h2>
+                    <p class="text-xl max-w-sm opacity-80 mb-10 font-medium">Schutz der Reputation in instabilen Phasen.</p>
+                    <a href="#" class="reveal-btn">Strategie-Audit</a>
                 </div>
             </div>
 
@@ -212,27 +225,27 @@
     </section>
 
     <!-- About / Vision -->
-    <section id="agency" class="py-40 px-8">
+    <section id="agency" class="py-48 px-8 bg-white text-black">
         <div class="max-w-[1600px] mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-24">
                 <div>
-                    <h3 class="text-xs font-black uppercase tracking-[0.4em] text-green-500 mb-10">THE COLLECTIVE</h3>
-                    <p class="text-5xl md:text-7xl font-black leading-[0.9] tracking-tighter">
-                        KOMPETENZ <br> TRIFFT <br> KONTEXT.
+                    <h3 class="text-xs font-black uppercase tracking-[0.5em] text-green-600 mb-12">DIE AGENTUR</h3>
+                    <p class="text-5xl md:text-8xl font-black leading-[0.85] tracking-tighter uppercase">
+                        DENKEN <br> VOR <br> SENDEN.
                     </p>
                 </div>
                 <div class="flex flex-col justify-end">
-                    <p class="text-2xl text-gray-400 leading-snug mb-10">
-                        Wir sind keine reine PR-Agentur. Wir sind strategische Partner für Unternehmen, deren Branchen sich radikal verändern. Seit 1994 denken wir Kommunikation neu.
+                    <p class="text-3xl text-gray-500 leading-tight mb-12 tracking-tight">
+                        Wir sind drp. Seit über 30 Jahren navigieren wir Marken durch den Wandel. Wir kombinieren journalistische Tiefe mit strategischer Exzellenz.
                     </p>
-                    <div class="grid grid-cols-2 gap-10 border-t border-white/10 pt-10">
+                    <div class="grid grid-cols-2 gap-12 border-t border-black/10 pt-12">
                         <div>
-                            <span class="text-4xl font-black block">30+</span>
-                            <span class="text-xs font-bold text-gray-600 uppercase">Consultants</span>
+                            <span class="text-5xl font-black block tracking-tighter">30+</span>
+                            <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Kreative Köpfe</span>
                         </div>
                         <div>
-                            <span class="text-4xl font-black block">GLOBAL</span>
-                            <span class="text-xs font-bold text-gray-600 uppercase">Network Access</span>
+                            <span class="text-5xl font-black block tracking-tighter">1994</span>
+                            <span class="text-[10px] font-black text-gray-400 uppercase tracking-widest">Gründungsjahr</span>
                         </div>
                     </div>
                 </div>
@@ -241,39 +254,39 @@
     </section>
 
     <!-- Modern Footer -->
-    <footer id="contact" class="bg-white text-black py-40 px-8">
+    <footer id="contact" class="bg-black text-white py-40 px-8">
         <div class="max-w-[1600px] mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-start mb-40">
-                <h2 class="text-7xl md:text-[12rem] font-black leading-none tracking-tighter mb-10 md:mb-0">LET'S <br>TALK.</h2>
-                <div class="md:text-right">
-                    <p class="text-xs font-black uppercase tracking-widest mb-6">Inquiry</p>
-                    <a href="mailto:office@dr-p.de" class="text-4xl md:text-6xl font-black hover:text-green-600 transition-colors">office@dr-p.de</a>
-                    <p class="mt-8 text-xl font-medium text-gray-500">+49 40 430 939-0</p>
+            <div class="flex flex-col md:flex-row justify-between items-start mb-48">
+                <h2 class="text-7xl md:text-[13rem] font-black leading-none tracking-tighter mb-12 md:mb-0 uppercase">LET'S <br>GO.</h2>
+                <div class="md:text-right pt-8">
+                    <p class="text-[10px] font-black uppercase tracking-[0.4em] text-gray-600 mb-8">Kontakt</p>
+                    <a href="mailto:office@dr-p.de" class="text-4xl md:text-7xl font-black hover:text-green-500 transition-all border-b-4 border-white hover:border-green-500 pb-2">office@dr-p.de</a>
+                    <p class="mt-12 text-2xl font-light text-gray-500 tracking-widest">+49 40 430 939-0</p>
                 </div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-black/10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 pb-12 border-b border-white/5">
                 <div>
-                    <p class="text-[10px] font-black uppercase tracking-widest mb-4">Hamburg Office</p>
-                    <p class="font-bold">Schulterblatt 58<br>20357 Hamburg</p>
+                    <p class="text-[10px] font-black uppercase tracking-widest text-gray-600 mb-6">Hamburg</p>
+                    <p class="text-lg font-bold">Schulterblatt 58<br>20357 Hamburg</p>
                 </div>
                 <div>
-                    <p class="text-[10px] font-black uppercase tracking-widest mb-4">Connect</p>
-                    <div class="flex flex-col font-bold">
-                        <a href="#" class="hover:underline">LinkedIn</a>
-                        <a href="#" class="hover:underline">Instagram</a>
+                    <p class="text-[10px] font-black uppercase tracking-widest text-gray-600 mb-6">Folgen</p>
+                    <div class="flex flex-col gap-2 font-bold text-lg">
+                        <a href="#" class="hover:text-green-500">LinkedIn</a>
+                        <a href="#" class="hover:text-green-500">Instagram</a>
                     </div>
                 </div>
                 <div class="md:text-right flex flex-col justify-end">
-                    <div class="logo-text text-3xl"><span class="brand-marker">//</span>drp</div>
+                    <div class="logo-text text-4xl"><span class="brand-marker">//</span>drp</div>
                 </div>
             </div>
             
-            <div class="flex justify-between items-center pt-8 text-[10px] font-black uppercase tracking-widest text-gray-400">
-                <span>© 2024 DRP Strategic Communications</span>
-                <div class="flex gap-10">
-                    <a href="#">Imprint</a>
-                    <a href="#">Privacy</a>
+            <div class="flex justify-between items-center pt-10 text-[9px] font-black uppercase tracking-[0.3em] text-gray-700">
+                <span>© 2024 Dederichs Reinecke & Partner</span>
+                <div class="flex gap-12">
+                    <a href="#" class="hover:text-white transition-colors">Impressum</a>
+                    <a href="#" class="hover:text-white transition-colors">Datenschutz</a>
                 </div>
             </div>
         </div>
