@@ -1,0 +1,22 @@
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Meine erste Website</title>
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    margin-top: 100px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Meine erste Website</h1>
+<p>Sie läuft über GitHub Pages.</p>
+
+</body>
+</html>
