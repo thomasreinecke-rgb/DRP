@@ -3,246 +3,240 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dederichs Reinecke & Partner | Strategische Kommunikation</title>
+    <title>drp | Strategic Communications Agency</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
         
+        :root {
+            --color-emerald: #004d40;
+            --color-terracotta: #e67e22;
+            --color-indigo: #4f46e5;
+            --color-slate: #0f172a;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-            color: #1a1a1a;
+            background-color: #fcfcfc;
+            color: #111;
         }
 
         .logo-text {
             font-weight: 900;
-            letter-spacing: -0.05em;
-            font-size: 2rem;
+            font-size: 1.75rem;
+            letter-spacing: -0.06em;
         }
 
-        .underscore {
-            display: inline-block;
-            width: 15px;
-            height: 6px;
-            background-color: #27AE60;
-            margin-right: 4px;
-            vertical-align: middle;
+        .brand-marker {
+            color: #27AE60;
+            margin-right: 2px;
+        }
+
+        .hero-title {
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+            font-size: clamp(3rem, 10vw, 8rem);
+        }
+
+        /* Expertise Grid Styling */
+        .grid-card {
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+            min-height: 400px;
+        }
+
+        .grid-card:hover {
+            transform: scale(0.98);
+        }
+
+        .icon-overlay {
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            font-size: 12rem;
+            opacity: 0.1;
+            transform: rotate(-15deg);
         }
 
         .nav-link {
-            font-size: 0.75rem;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            transition: color 0.3s ease;
-        }
-
-        .expertise-card {
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border: 1px solid #f0f0f0;
-        }
-
-        .expertise-card:hover {
-            transform: translateY(-12px);
-            border-color: #e0e0e0;
-            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.08);
-        }
-
-        .bg-gradient-soft {
-            background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
-        }
-
-        .section-title {
-            font-weight: 900;
-            letter-spacing: -0.02em;
-            line-height: 1.1;
-        }
-
-        /* Farbakzente für die 4 Bereiche */
-        .accent-cleantech { color: #27AE60; }
-        .accent-food { color: #E67E22; }
-        .accent-change { color: #2C3E50; }
-        .accent-family { color: #9B59B6; }
-
-        .btn-primary {
-            background-color: #1a1a1a;
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 9999px;
-            font-weight: 700;
+            font-size: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            font-size: 0.75rem;
-            transition: all 0.3s ease;
         }
 
-        .btn-primary:hover {
-            background-color: #27AE60;
-            transform: scale(1.05);
+        .footer-logo {
+            font-size: 5vw;
+            font-weight: 900;
+            letter-spacing: -0.06em;
         }
+
+        /* Custom Colors for Cards */
+        .card-green { background-color: #d1fae5; color: #065f46; }
+        .card-orange { background-color: #ffedd5; color: #9a3412; }
+        .card-purple { background-color: #f3e8ff; color: #581c87; }
+        .card-dark { background-color: #1e293b; color: #f8fafc; }
+
     </style>
 </head>
-<body class="bg-white">
+<body>
 
-    <!-- Header / Nav -->
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
-            <div class="logo-text">
-                <span class="underscore"></span>drp
-            </div>
-            <div class="hidden md:flex space-x-10 items-center">
-                <a href="#expertise" class="nav-link hover:text-green-600">Expertise</a>
-                <a href="#agentur" class="nav-link hover:text-green-600">Agentur</a>
-                <a href="#kontakt" class="btn-primary !py-3 !px-6">Kontakt</a>
-            </div>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 px-6 py-8 flex justify-between items-center mix-blend-difference">
+        <div class="logo-text text-white">
+            <span class="brand-marker">//</span>drp
+        </div>
+        <div class="flex gap-8 items-center text-white">
+            <a href="#expertise" class="nav-link">Work</a>
+            <a href="#agency" class="nav-link">About</a>
+            <a href="#contact" class="nav-link">Contact</a>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="pt-48 pb-32 px-6 bg-gradient-soft">
-        <div class="max-w-7xl mx-auto">
-            <h1 class="text-6xl md:text-8xl section-title mb-12">
-                Strategie für <br>
-                <span class="text-gray-400">Marken im</span> Wandel.
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col justify-end px-6 pb-20">
+        <div class="max-w-[1400px] mx-auto w-full">
+            <p class="text-xs font-bold uppercase tracking-widest mb-8 text-gray-400">Founded 1994 // Hamburg Based // Global Impact</p>
+            <h1 class="hero-title mb-12">
+                WE MOVE <br>
+                <span class="text-gray-300">BRANDS IN</span> <br>
+                MOTION.
             </h1>
-            <p class="text-xl text-gray-500 max-w-2xl leading-relaxed mb-12">
-                Dederichs Reinecke & Partner ist Ihre Agentur für Kommunikation. Wir begleiten Marktführer und Innovatoren durch die Transformation – von Cleantech bis Consumer Goods.
-            </p>
-            <div class="flex flex-wrap gap-4">
-                <div class="px-4 py-2 bg-white border border-gray-200 rounded-full text-xs font-bold uppercase tracking-widest">Hamburg</div>
-                <div class="px-4 py-2 bg-white border border-gray-200 rounded-full text-xs font-bold uppercase tracking-widest">Seit 1994</div>
-                <div class="px-4 py-2 bg-white border border-gray-200 rounded-full text-xs font-bold uppercase tracking-widest">Global Network</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Expertise Grid (The 4 Pillars) -->
-    <section id="expertise" class="py-32 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="mb-20">
-                <h2 class="text-4xl font-black mb-6">Unsere Schwerpunkte</h2>
-                <div class="w-20 h-2 bg-green-600"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
-                <!-- 1. Cleantech -->
-                <div class="expertise-card bg-white p-10 rounded-[2.5rem] flex flex-col h-full">
-                    <div class="text-3xl accent-cleantech mb-8"><i class="fa-solid fa-bolt-lightning"></i></div>
-                    <h3 class="text-2xl font-black mb-4">Cleantech & <br>Mobility</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-8 flex-grow">
-                        Wir übersetzen komplexe Technologien der Energie- und Verkehrswende in gesellschaftlich relevante Narrative.
-                    </p>
-                    <ul class="text-[10px] font-bold uppercase tracking-widest text-gray-400 space-y-2">
-                        <li>• New Energy</li>
-                        <li>• Circular Economy</li>
-                        <li>• Infrastructure</li>
-                    </ul>
-                </div>
-
-                <!-- 2. Food & Lifestyle -->
-                <div class="expertise-card bg-white p-10 rounded-[2.5rem] flex flex-col h-full">
-                    <div class="text-3xl accent-food mb-8"><i class="fa-solid fa-utensils"></i></div>
-                    <h3 class="text-2xl font-black mb-4">Food & <br>Lifestyle</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-8 flex-grow">
-                        Vom New-Food-Trend bis zum FMCG-Klassiker: Wir schaffen Begehrlichkeit und Markenzugang.
-                    </p>
-                    <ul class="text-[10px] font-bold uppercase tracking-widest text-gray-400 space-y-2">
-                        <li>• FMCG Strategy</li>
-                        <li>• Brand Activation</li>
-                        <li>• Influencer PR</li>
-                    </ul>
-                </div>
-
-                <!-- 3. Kids, Family & Consumer -->
-                <div class="expertise-card bg-white p-10 rounded-[2.5rem] flex flex-col h-full border-green-100 shadow-lg shadow-purple-50">
-                    <div class="text-3xl accent-family mb-8"><i class="fa-solid fa-child-reaching"></i></div>
-                    <h3 class="text-2xl font-black mb-4">Kids, Family <br>& Consumer</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-8 flex-grow">
-                        Wir verstehen die Zielgruppe Familie. Wir emotionalisieren Produkte wie Babytragen und Kids-Gadgets nachhaltig.
-                    </p>
-                    <ul class="text-[10px] font-bold uppercase tracking-widest text-gray-400 space-y-2">
-                        <li>• Parenting Brands</li>
-                        <li>• Product PR</li>
-                        <li>• Community Building</li>
-                    </ul>
-                </div>
-
-                <!-- 4. Change & Crisis -->
-                <div class="expertise-card bg-white p-10 rounded-[2.5rem] flex flex-col h-full">
-                    <div class="text-3xl accent-change mb-8"><i class="fa-solid fa-shield-halved"></i></div>
-                    <h3 class="text-2xl font-black mb-4">Change & <br>Krise</h3>
-                    <p class="text-gray-500 text-sm leading-relaxed mb-8 flex-grow">
-                        Wenn Kommunikation zur Chefsache wird: Wir sichern Reputation und begleiten kritische Veränderungsprozesse.
-                    </p>
-                    <ul class="text-[10px] font-bold uppercase tracking-widest text-gray-400 space-y-2">
-                        <li>• Issue Management</li>
-                        <li>• CEO Positioning</li>
-                        <li>• Litigation PR</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Agentur Section -->
-    <section id="agentur" class="py-24 px-6 bg-gray-50">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-20">
-            <div class="w-full md:w-1/2">
-                <div class="relative">
-                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-green-100 rounded-full -z-10"></div>
-                    <img src="https://www.dr-p.de/wp-content/uploads/2021/03/drp-team-hamburg.jpg" onerror="this.src='https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200'" alt="[Teamfoto drp]" class="rounded-[3rem] shadow-2xl grayscale hover:grayscale-0 transition duration-700">
-                </div>
-            </div>
-            <div class="w-full md:w-1/2">
-                <span class="text-xs font-bold uppercase tracking-[0.3em] text-green-600 mb-6 block">Agentur</span>
-                <h2 class="text-5xl font-black mb-8 leading-tight">Kompetenz trifft <br>Leidenschaft.</h2>
-                <p class="text-gray-500 text-lg mb-8 leading-relaxed">
-                    Dederichs Reinecke & Partner verbindet die Schlagkraft einer großen Agentur mit der Agilität einer spezialisierten Beratung. Wir denken nicht in Kanälen, sondern in Lösungen.
+            <div class="flex flex-col md:flex-row justify-between items-end gap-8">
+                <p class="text-xl max-w-xl text-gray-600 leading-tight">
+                    Dederichs Reinecke & Partner ist eine inhabergeführte Strategieberatung für Kommunikation. Wir gestalten den Wandel in Branchen, die unsere Zukunft definieren.
                 </p>
-                <div class="flex gap-12">
-                    <div>
-                        <div class="text-4xl font-black">30+</div>
-                        <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mt-2">Kreative Köpfe</div>
-                    </div>
-                    <div>
-                        <div class="text-4xl font-black">200+</div>
-                        <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mt-2">Cases betreut</div>
+                <div class="flex gap-4">
+                    <div class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center animate-bounce">
+                        <i class="fa-solid fa-arrow-down"></i>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer / Kontakt -->
-    <footer id="kontakt" class="py-24 px-6 bg-white border-t border-gray-100">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
-            <div class="max-w-md">
-                <div class="logo-text mb-8"><span class="underscore"></span>drp</div>
-                <p class="text-gray-500 mb-8">Bereit für den nächsten Schritt? Kontaktieren Sie uns für eine unverbindliche Erstberatung.</p>
-                <a href="mailto:office@dr-p.de" class="btn-primary inline-block">Projekt anfragen</a>
-            </div>
-            <div class="grid grid-cols-2 gap-16">
+    <!-- Expertise Bento Grid -->
+    <section id="expertise" class="px-6 py-12">
+        <div class="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <!-- Cleantech -->
+            <div class="grid-card card-green rounded-[2rem] p-12 flex flex-col justify-between">
                 <div>
-                    <h4 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Standort</h4>
-                    <p class="text-sm font-bold">Schulterblatt 58<br>20357 Hamburg<br>Deutschland</p>
+                    <span class="text-xs font-black uppercase tracking-widest opacity-60">Sektor 01</span>
+                    <h2 class="text-5xl font-black mt-4 leading-none">Cleantech & <br>Mobility</h2>
                 </div>
+                <div class="max-w-xs">
+                    <p class="text-lg font-medium leading-tight mb-6">Wir kommunizieren die Dekarbonisierung der Welt.</p>
+                    <button class="text-xs font-bold uppercase border-b-2 border-current pb-1">View Cases</button>
+                </div>
+                <div class="icon-overlay"><i class="fa-solid fa-leaf"></i></div>
+            </div>
+
+            <!-- Food -->
+            <div class="grid-card card-orange rounded-[2rem] p-12 flex flex-col justify-between">
                 <div>
-                    <h4 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Social</h4>
-                    <div class="flex flex-col gap-2 text-sm font-bold">
-                        <a href="#" class="hover:text-green-600">LinkedIn</a>
-                        <a href="#" class="hover:text-green-600">Instagram</a>
+                    <span class="text-xs font-black uppercase tracking-widest opacity-60">Sektor 02</span>
+                    <h2 class="text-5xl font-black mt-4 leading-none">Food & <br>Lifestyle</h2>
+                </div>
+                <div class="max-w-xs">
+                    <p class="text-lg font-medium leading-tight mb-6">Kulturprägende Kampagnen für FMCG und New-Food.</p>
+                    <button class="text-xs font-bold uppercase border-b-2 border-current pb-1">View Cases</button>
+                </div>
+                <div class="icon-overlay"><i class="fa-solid fa-mug-hot"></i></div>
+            </div>
+
+            <!-- Family -->
+            <div class="grid-card card-purple rounded-[2rem] p-12 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-black uppercase tracking-widest opacity-60">Sektor 03</span>
+                    <h2 class="text-5xl font-black mt-4 leading-none">Kids, Family <br>& Consumer</h2>
+                </div>
+                <div class="max-w-xs">
+                    <p class="text-lg font-medium leading-tight mb-6">Storytelling für die nächste Generation.</p>
+                    <button class="text-xs font-bold uppercase border-b-2 border-current pb-1">View Cases</button>
+                </div>
+                <div class="icon-overlay"><i class="fa-solid fa-heart"></i></div>
+            </div>
+
+            <!-- Crisis -->
+            <div class="grid-card card-dark rounded-[2rem] p-12 flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-black uppercase tracking-widest opacity-40">Sektor 04</span>
+                    <h2 class="text-5xl font-black mt-4 leading-none">Change & <br>Krise</h2>
+                </div>
+                <div class="max-w-xs text-gray-300">
+                    <p class="text-lg font-medium leading-tight mb-6">Strategische Absicherung in instabilen Zeiten.</p>
+                    <button class="text-xs font-bold uppercase border-b-2 border-current pb-1 text-white">View Insights</button>
+                </div>
+                <div class="icon-overlay"><i class="fa-solid fa-crosshairs"></i></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Agency Statement -->
+    <section id="agency" class="py-40 px-6 bg-white">
+        <div class="max-w-[1400px] mx-auto">
+            <h3 class="text-xs font-black uppercase tracking-[0.3em] text-gray-400 mb-12">Die Agentur</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
+                <p class="text-4xl md:text-5xl font-bold leading-tight tracking-tight">
+                    Wir sind drp. <br>
+                    Ein Kollektiv aus Strategen, Journalisten und Kreativen. Wir machen Kommunikation nicht nur sichtbar, sondern wirksam.
+                </p>
+                <div class="space-y-8">
+                    <p class="text-gray-500 text-xl leading-relaxed">
+                        Mit Standorten in Hamburg und einem globalen Netzwerk begleiten wir Unternehmen durch komplexe Transformationsprozesse. Unsere DNA ist unternehmerisch, unsere Methode datengetrieben.
+                    </p>
+                    <div class="pt-8 border-t border-gray-100 flex gap-20">
+                        <div>
+                            <span class="block text-4xl font-black">30+</span>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Experts</span>
+                        </div>
+                        <div>
+                            <span class="block text-4xl font-black">1994</span>
+                            <span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Est. Year</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-24 pt-8 border-t border-gray-50 flex justify-between text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300">
-            <div>© 2024 Dederichs Reinecke & Partner</div>
-            <div class="flex gap-6">
-                <a href="#">Impressum</a>
-                <a href="#">Datenschutz</a>
+    </section>
+
+    <!-- Global Footer -->
+    <footer id="contact" class="bg-[#111] text-white py-32 px-6">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="footer-logo mb-20">
+                <span class="brand-marker">//</span>drp.
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-32">
+                <div>
+                    <h4 class="text-xs font-black uppercase tracking-widest text-gray-500 mb-8">Say Hello</h4>
+                    <a href="mailto:office@dr-p.de" class="text-3xl font-bold hover:text-green-500 transition">office@dr-p.de</a>
+                    <p class="mt-4 text-gray-400">+49 40 430 939-0</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-black uppercase tracking-widest text-gray-500 mb-8">Visit Us</h4>
+                    <p class="text-xl font-bold">Schulterblatt 58<br>20357 Hamburg<br>Germany</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-black uppercase tracking-widest text-gray-500 mb-8">Follow</h4>
+                    <div class="flex flex-col gap-2">
+                        <a href="#" class="text-xl font-bold hover:underline">LinkedIn</a>
+                        <a href="#" class="text-xl font-bold hover:underline">Instagram</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-12 border-t border-white/10 flex justify-between items-center text-[10px] font-bold uppercase tracking-widest text-gray-500">
+                <div>© 2024 Dederichs Reinecke & Partner</div>
+                <div class="flex gap-8">
+                    <a href="#">Legal</a>
+                    <a href="#">Privacy</a>
+                </div>
             </div>
         </div>
     </footer>
