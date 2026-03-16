@@ -112,7 +112,6 @@
             letter-spacing: 0.25em;
         }
 
-        /* Verhindert, dass unsichtbare Views Klicks abfangen */
         .view-hidden { 
             display: none !important; 
         }
@@ -214,8 +213,8 @@
                 desc: "Wir begleiten die Wegbereiter der neuen Mobilität und Energiewende.",
                 phClass: "ph-cleantech",
                 cases: [
-                    { name: "Hy2gen", cat: "Hydrogen", img: "assets/hy2gen.jpg" },
                     { name: "Torqeedo", cat: "e-Boats", img: "image_b9086b.jpg" },
+                    { name: "Hy2gen", cat: "Hydrogen", img: "assets/hy2gen.jpg" },
                     { name: "Choco", cat: "AgriTech", img: "assets/choco.jpg" },
                     { name: "Sono Motors", cat: "Solar", img: "assets/sono.jpg" },
                     { name: "Fastned", cat: "Charging", img: "assets/fastned.jpg" },
@@ -272,8 +271,9 @@
                 sectorView.classList.add('view-hidden');
                 if (sid === 'expertise') {
                     setTimeout(() => {
-                        document.getElementById('expertise').scrollIntoView({ behavior: 'smooth' });
-                    }, 50);
+                        const expertiseEl = document.getElementById('expertise');
+                        if(expertiseEl) expertiseEl.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
                 }
             } else {
                 homeView.classList.add('view-hidden');
@@ -294,8 +294,12 @@
                 const card = document.createElement('div');
                 card.className = `case-card ${data.phClass} fade-in`;
                 card.style.animationDelay = `${i * 0.1}s`;
-                // Nutze eine Fallback-Logik für Bilder: Zuerst das angegebene Bild, dann ein Placeholder
+                
+                // Fallback-Logik:
+                // 1. Versuche das lokale Bild
+                // 2. Fallback auf den Platzhalter-Service
                 const bgStyle = `background-image: url('${c.img}'), url('https://placehold.co/800x600/1a1a1a/ffffff?text=${encodeURIComponent(c.name)}')`;
+                
                 card.innerHTML = `
                     <div class="case-bg" style="${bgStyle}"></div>
                     <div class="case-overlay"></div>
