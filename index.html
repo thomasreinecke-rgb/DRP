@@ -56,6 +56,7 @@
             border-radius: 1.5rem;
             border: 1px solid rgba(0,0,0,0.05);
             cursor: pointer;
+            z-index: 10;
         }
 
         .grid-card:hover {
@@ -111,7 +112,10 @@
             letter-spacing: 0.25em;
         }
 
-        .view-hidden { display: none; }
+        /* Verhindert, dass unsichtbare Views Klicks abfangen */
+        .view-hidden { 
+            display: none !important; 
+        }
         
         .fade-in {
             animation: fadeIn 0.8s ease forwards;
@@ -136,7 +140,7 @@
 <body class="bg-white">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 px-8 py-8 flex justify-between items-center bg-white/90 backdrop-blur-lg border-b border-black/5">
+    <nav class="fixed w-full z-[100] px-8 py-8 flex justify-between items-center bg-white/90 backdrop-blur-lg border-b border-black/5">
         <div class="logo-text" onclick="showView('home')">
             <span class="brand-marker">//</span>drp
         </div>
@@ -228,4 +232,84 @@
                     { name: "Magnum", cat: "Ice Cream", img: "assets/magnum.jpg" },
                     { name: "Don Papa", cat: "Spirits", img: "assets/donpapa.jpg" },
                     { name: "Baileys", cat: "Lifestyle", img: "assets/baileys.jpg" },
-                    { name: "Parmigiano", cat: "Tradition", img: "assets/parmigiano.jpg
+                    { name: "Parmigiano", cat: "Tradition", img: "assets/parmigiano.jpg" },
+                    { name: "Bonne Maman", cat: "Gourmet", img: "assets/bonnemaman.jpg" },
+                    { name: "Pick", cat: "Food", img: "assets/pick.jpg" },
+                    { name: "Maille", cat: "Dijon", img: "assets/maille.jpg" },
+                    { name: "Chivers", cat: "Jam", img: "assets/chivers.jpg" }
+                ]
+            },
+            family: {
+                title: "Family",
+                desc: "Wir kennen die Zielgruppe Familie und wissen, wie man Vertrauen aufbaut.",
+                phClass: "ph-family",
+                cases: [
+                    { name: "Ergobaby", cat: "Care", img: "assets/ergobaby.jpg" },
+                    { name: "Baby Tula", cat: "Fashion", img: "assets/babytula.jpg" },
+                    { name: "Aeromoov", cat: "Travel", img: "assets/aeromoov.jpg" },
+                    { name: "Aerosleep", cat: "Sleep", img: "assets/aerosleep.jpg" },
+                    { name: "Ideenexpo", cat: "Event", img: "assets/ideenexpo.jpg" }
+                ]
+            },
+            crisis: {
+                title: "Change",
+                desc: "Souveränität in der Krise. Wir schützen Ihre Reputation, wenn es darauf ankommt.",
+                phClass: "ph-crisis",
+                cases: [
+                    { name: "Landeskrankenhaus", cat: "Health", img: "assets/lkh.jpg" },
+                    { name: "Krs. Sparkasse", cat: "Finance", img: "assets/sparkasse.jpg" },
+                    { name: "Change Strategy", cat: "Consulting", img: "assets/change.jpg" }
+                ]
+            }
+        };
+
+        function showView(view, sid) {
+            const homeView = document.getElementById('home-view');
+            const sectorView = document.getElementById('sector-view');
+            
+            if (view === 'home') {
+                homeView.classList.remove('view-hidden');
+                sectorView.classList.add('view-hidden');
+                if (sid === 'expertise') {
+                    setTimeout(() => {
+                        document.getElementById('expertise').scrollIntoView({ behavior: 'smooth' });
+                    }, 50);
+                }
+            } else {
+                homeView.classList.add('view-hidden');
+                sectorView.classList.remove('view-hidden');
+                loadSector(sid);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function loadSector(id) {
+            const data = sectorData[id];
+            document.getElementById('sector-title').innerText = data.title;
+            document.getElementById('sector-desc').innerText = data.desc;
+            const grid = document.getElementById('case-grid');
+            grid.innerHTML = '';
+            
+            data.cases.forEach((c, i) => {
+                const card = document.createElement('div');
+                card.className = `case-card ${data.phClass} fade-in`;
+                card.style.animationDelay = `${i * 0.1}s`;
+                // Nutze eine Fallback-Logik für Bilder: Zuerst das angegebene Bild, dann ein Placeholder
+                const bgStyle = `background-image: url('${c.img}'), url('https://placehold.co/800x600/1a1a1a/ffffff?text=${encodeURIComponent(c.name)}')`;
+                card.innerHTML = `
+                    <div class="case-bg" style="${bgStyle}"></div>
+                    <div class="case-overlay"></div>
+                    <div class="case-content">
+                        <span class="text-[10px] font-black uppercase tracking-[0.2em] text-white/50 mb-2 block">${c.cat}</span>
+                        <h3 class="text-3xl font-black uppercase tracking-tighter leading-none">${c.name}</h3>
+                        <div class="mt-6 flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                            Case ansehen <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
