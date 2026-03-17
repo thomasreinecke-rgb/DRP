@@ -44,7 +44,6 @@
             text-transform: uppercase;
         }
 
-        /* Optimierte Grid-Cards für bessere Klickbarkeit */
         .grid-card {
             transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
@@ -57,7 +56,7 @@
             border-radius: 1.5rem;
             border: 1px solid rgba(0,0,0,0.05);
             cursor: pointer;
-            z-index: 20; /* Erhöht, um Überlagerung zu vermeiden */
+            z-index: 20;
         }
 
         .grid-card:hover {
@@ -135,4 +134,189 @@
 
         @media (max-width: 768px) {
             .hero-title { font-size: 3.5rem; }
-            .grid-card { min-height: 4
+            .grid-card { min-height: 400px; padding: 2rem; }
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-[100] px-8 py-8 flex items-center justify-between bg-white/90 backdrop-blur-lg border-b border-black/5">
+        <div class="logo-text" onclick="showView('home')">
+            <span class="brand-marker">//</span>drp
+        </div>
+        <div class="hidden md:flex gap-12 items-center">
+            <a href="javascript:void(0)" onclick="showView('home', 'expertise')" class="nav-link text-black hover:text-emerald-500 transition-colors">Expertise</a>
+            <a href="#contact" class="nav-link px-7 py-3 bg-black text-white rounded-full hover:bg-emerald-500 transition-all shadow-xl shadow-black/10">Kontakt</a>
+        </div>
+    </nav>
+
+    <!-- HOME VIEW -->
+    <main id="home-view" class="fade-in">
+        <section class="min-h-screen flex flex-col justify-center px-8 relative">
+            <div class="max-w-[1600px] mx-auto w-full pt-32">
+                <span class="text-emerald-500 font-black tracking-[0.3em] text-xs uppercase mb-6 block">Strategische Kommunikation</span>
+                <h1 class="hero-title text-black">
+                    KOMMUNIKATION FÜR <br>
+                    MARKEN UND UNTERNEHMEN <br>
+                    <span class="text-emerald-500">IM WANDEL.</span>
+                </h1>
+                <p class="mt-12 text-2xl md:text-3xl text-gray-400 max-w-2xl font-medium leading-tight">
+                    Wir machen Innovationen greifbar, Marken nahbar und Krisen beherrschbar.
+                </p>
+            </div>
+        </section>
+
+        <!-- Sektoren Übersicht -->
+        <section id="expertise" class="py-24 px-4 bg-gray-50 relative z-10">
+            <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Cleantech Karte -->
+                <div class="grid-card bg-emerald-50 text-emerald-900 border-emerald-100" onclick="showView('sector', 'cleantech')">
+                    <h2 class="text-6xl font-black uppercase tracking-tighter leading-none">CLEAN <br>TECH</h2>
+                    <p class="text-xl font-medium opacity-70">Mobility, Energy & Climate Tech</p>
+                    <span class="reveal-btn border-b-2 border-emerald-900 font-bold uppercase text-[10px] tracking-widest py-2 w-fit">Cases entdecken</span>
+                </div>
+                <!-- Food Karte -->
+                <div class="grid-card bg-orange-50 text-orange-900 border-orange-100" onclick="showView('sector', 'food')">
+                    <h2 class="text-6xl font-black uppercase tracking-tighter leading-none">FOOD & <br>LIFESTYLE</h2>
+                    <p class="text-xl font-medium opacity-70">Marken mit Haltung</p>
+                    <span class="reveal-btn border-b-2 border-orange-900 font-bold uppercase text-[10px] tracking-widest py-2 w-fit">Cases entdecken</span>
+                </div>
+                <!-- Family Karte -->
+                <div class="grid-card bg-indigo-50 text-indigo-900 border-indigo-100" onclick="showView('sector', 'family')">
+                    <h2 class="text-6xl font-black uppercase tracking-tighter leading-none">FAMILY <br>CONSUMER</h2>
+                    <p class="text-xl font-medium opacity-70">Vertrauen & Alltag</p>
+                    <span class="reveal-btn border-b-2 border-indigo-900 font-bold uppercase text-[10px] tracking-widest py-2 w-fit">Cases entdecken</span>
+                </div>
+                <!-- Krisen Karte -->
+                <div class="grid-card bg-slate-100 text-slate-900 border-slate-200" onclick="showView('sector', 'crisis')">
+                    <h2 class="text-6xl font-black uppercase tracking-tighter leading-none">CHANGE & <br>KRISE</h2>
+                    <p class="text-xl font-medium opacity-70">Reputation & Strategie</p>
+                    <span class="reveal-btn border-b-2 border-slate-900 font-bold uppercase text-[10px] tracking-widest py-2 w-fit">Cases entdecken</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- SECTOR VIEW -->
+    <main id="sector-view" class="view-hidden pt-40 px-8 pb-24 fade-in">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="mb-20">
+                <button onclick="showView('home', 'expertise')" class="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-600 mb-8 flex items-center gap-3 group">
+                    <i class="fa-solid fa-arrow-left group-hover:-translate-x-2 transition-transform"></i> Zurück zur Expertise
+                </button>
+                <h1 id="sector-title" class="text-7xl md:text-9xl font-black uppercase tracking-tighter leading-none mb-6">SEKTOR</h1>
+                <p id="sector-desc" class="text-2xl md:text-4xl font-medium text-gray-400 max-w-4xl leading-tight"></p>
+            </div>
+            <div id="case-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+        </div>
+    </main>
+
+    <script>
+        const sectorData = {
+            cleantech: {
+                title: "Climate Tech",
+                desc: "Wir kommunizieren die technologischen Antworten auf den Klimawandel: Von intelligenter E-Mobilität und Automotive-Innovation über dezentrale Energie bis hin zu Greentech-Lösungen für eine nachhaltige Transformation.",
+                phClass: "ph-cleantech",
+                cases: [
+                    { name: "Torqeedo", cat: "Sustainable Mobility", img: "image_b9086b.jpg" },
+                    { name: "Fastned", cat: "Infrastructure & Energy", img: "assets/fastned.jpg" },
+                    { name: "Hy2gen", cat: "Green Hydrogen", img: "assets/hy2gen.jpg" },
+                    { name: "GAC", cat: "Automotive Tech", img: "assets/gac.jpg" },
+                    { name: "Rebuy", cat: "Circular Economy", img: "assets/rebuy.jpg" },
+                    { name: "Choco", cat: "Efficiency Tech", img: "assets/choco.jpg" },
+                    { name: "Sono Motors", cat: "Solar Mobility", img: "assets/sono.jpg" },
+                    { name: "BRP", cat: "Electric Adventure", img: "assets/brp.jpg" }
+                ]
+            },
+            food: {
+                title: "Food & Lifestyle",
+                desc: "Von Traditionsmarken bis zu Food-Startups: Wir schaffen Relevanz am Point of Sale.",
+                phClass: "ph-food",
+                cases: [
+                    { name: "Magnum", cat: "Ice Cream", img: "assets/magnum.jpg" },
+                    { name: "Don Papa", cat: "Spirits", img: "assets/donpapa.jpg" },
+                    { name: "Baileys", cat: "Lifestyle", img: "assets/baileys.jpg" },
+                    { name: "Parmigiano", cat: "Tradition", img: "assets/parmigiano.jpg" },
+                    { name: "Bonne Maman", cat: "Gourmet", img: "assets/bonnemaman.jpg" },
+                    { name: "Pick", cat: "Food", img: "assets/pick.jpg" },
+                    { name: "Maille", cat: "Dijon", img: "assets/maille.jpg" },
+                    { name: "Chivers", cat: "Jam", img: "assets/chivers.jpg" }
+                ]
+            },
+            family: {
+                title: "Family",
+                desc: "Wir kennen die Zielgruppe Familie und wissen, wie man Vertrauen aufbaut.",
+                phClass: "ph-family",
+                cases: [
+                    { name: "Ergobaby", cat: "Care", img: "assets/ergobaby.jpg" },
+                    { name: "Baby Tula", cat: "Fashion", img: "assets/babytula.jpg" },
+                    { name: "Aeromoov", cat: "Travel", img: "assets/aeromoov.jpg" },
+                    { name: "Aerosleep", cat: "Sleep", img: "assets/aerosleep.jpg" },
+                    { name: "Ideenexpo", cat: "Event", img: "assets/ideenexpo.jpg" }
+                ]
+            },
+            crisis: {
+                title: "Change",
+                desc: "Souveränität in der Krise. Wir schützen Ihre Reputation, wenn es darauf ankommt.",
+                phClass: "ph-crisis",
+                cases: [
+                    { name: "Landeskrankenhaus", cat: "Health", img: "assets/lkh.jpg" },
+                    { name: "Krs. Sparkasse", cat: "Finance", img: "assets/sparkasse.jpg" },
+                    { name: "Change Strategy", cat: "Consulting", img: "assets/change.jpg" }
+                ]
+            }
+        };
+
+        function showView(view, sid) {
+            const homeView = document.getElementById('home-view');
+            const sectorView = document.getElementById('sector-view');
+            
+            if (view === 'home') {
+                homeView.classList.remove('view-hidden');
+                sectorView.classList.add('view-hidden');
+                if (sid === 'expertise') {
+                    setTimeout(() => {
+                        const expertiseEl = document.getElementById('expertise');
+                        if(expertiseEl) expertiseEl.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                }
+            } else {
+                homeView.classList.add('view-hidden');
+                sectorView.classList.remove('view-hidden');
+                loadSector(sid);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function loadSector(id) {
+            const data = sectorData[id];
+            document.getElementById('sector-title').innerText = data.title;
+            document.getElementById('sector-desc').innerText = data.desc;
+            const grid = document.getElementById('case-grid');
+            grid.innerHTML = '';
+            
+            data.cases.forEach((c, i) => {
+                const card = document.createElement('div');
+                card.className = `case-card ${data.phClass} fade-in group`;
+                card.style.animationDelay = `${i * 0.1}s`;
+                
+                const bgStyle = `background-image: url('${c.img}'), url('https://placehold.co/800x600/f1f5f9/94a3b8?text=${encodeURIComponent(c.name)}')`;
+                
+                card.innerHTML = `
+                    <div class="case-bg" style="${bgStyle}"></div>
+                    <div class="case-overlay"></div>
+                    <div class="case-content">
+                        <span class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 mb-2 block">${c.cat}</span>
+                        <h3 class="text-3xl font-black uppercase tracking-tighter leading-none text-black">${c.name}</h3>
+                        <div class="mt-6 flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest text-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Details ansehen <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
