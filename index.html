@@ -283,4 +283,41 @@
                 homeView.classList.add('view-hidden');
                 sectorView.classList.remove('view-hidden');
                 loadSector(sid);
-                window.scrollTo({ top:
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function loadSector(id) {
+            const data = sectorData[id];
+            document.getElementById('sector-title').innerText = data.title;
+            document.getElementById('sector-desc').innerText = data.desc;
+            const grid = document.getElementById('case-grid');
+            grid.innerHTML = '';
+            
+            data.cases.forEach((c, i) => {
+                const card = document.createElement('div');
+                card.className = `case-card ${data.phClass} fade-in group`;
+                card.style.animationDelay = `${i * 0.1}s`;
+                
+                // Fallback-Logik:
+                // 1. Versuche das lokale Bild
+                // 2. Fallback auf einen hellen Platzhalter
+                const bgStyle = `background-image: url('${c.img}'), url('https://placehold.co/800x600/f1f5f9/94a3b8?text=${encodeURIComponent(c.name)}')`;
+                
+                card.innerHTML = `
+                    <div class="case-bg" style="${bgStyle}"></div>
+                    <div class="case-overlay"></div>
+                    <div class="case-content">
+                        <span class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 mb-2 block">${c.cat}</span>
+                        <h3 class="text-3xl font-black uppercase tracking-tighter leading-none text-black">${c.name}</h3>
+                        <div class="mt-6 flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest text-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Details ansehen <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
