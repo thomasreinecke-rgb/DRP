@@ -3,7 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>drp | Strategic Communications Agency</title>
+    
+    <!-- SEO & Search Engine Optimization -->
+    <title>drp | Strategische Kommunikationsagentur für Cleantech, Food & Krise</title>
+    <meta name="description" content="drp ist Ihre Agentur für strategische Kommunikation im Wandel. Spezialisiert auf Climate Tech, Food & Lifestyle sowie Krisen-PR und Change Management.">
+    <meta name="keywords" content="Kommunikationsagentur, Krisen-PR, Climate Tech Marketing, Food PR, Change Management, Strategische Kommunikation Hamburg, drp">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (Social Media & LLM Preview) -->
+    <meta property="og:title" content="drp | Strategic Communications Agency">
+    <meta property="og:description" content="Innovationen greifbar machen. Marken nahbar machen. Krisen beherrschbar machen.">
+    <meta property="og:type" content="website">
+    
+    <!-- LLMO / Schema.org JSON-LD (Hilft KI-Modellen die Unternehmensstruktur zu verstehen) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "drp - Dederichs Reinecke & Partner",
+      "description": "Spezialisierte Agentur für strategische Kommunikation in den Bereichen Climate Tech, Mobility, Food und Krisenmanagement.",
+      "url": "https://www.dr-p.de",
+      "knowsAbout": ["Strategic Communications", "Climate Tech", "Crisis Management", "Public Relations", "Food & Lifestyle Marketing"],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hamburg",
+        "addressCountry": "DE"
+      }
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -141,59 +169,61 @@
 <body class="bg-white">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-[100] px-8 py-8 flex items-center justify-between bg-white/90 backdrop-blur-lg border-b border-black/5">
-        <div class="logo-text" onclick="showView('home')">
-            <span class="brand-marker">//</span>drp
-        </div>
-        <div class="hidden md:flex gap-12 items-center">
-            <a href="javascript:void(0)" onclick="showView('home', 'expertise')" class="nav-link text-black hover:text-emerald-500 transition-colors">Expertise</a>
-            <a href="#contact" class="nav-link px-7 py-3 bg-black text-white rounded-full hover:bg-emerald-500 transition-all shadow-xl shadow-black/10">Kontakt</a>
-        </div>
-    </nav>
+    <header>
+        <nav class="fixed w-full z-[100] px-8 py-8 flex items-center justify-between bg-white/90 backdrop-blur-lg border-b border-black/5">
+            <div class="logo-text" onclick="showView('home')">
+                <span class="brand-marker">//</span>drp
+            </div>
+            <div class="hidden md:flex gap-12 items-center">
+                <a href="javascript:void(0)" onclick="showView('home', 'expertise')" class="nav-link text-black hover:text-emerald-500 transition-colors">Expertise</a>
+                <a href="#contact" class="nav-link px-7 py-3 bg-black text-white rounded-full hover:bg-emerald-500 transition-all shadow-xl shadow-black/10">Kontakt</a>
+            </div>
+        </nav>
+    </header>
 
     <!-- HOME VIEW -->
     <main id="home-view" class="fade-in">
         <section class="min-h-screen flex flex-col justify-center px-8 relative">
             <div class="max-w-[1600px] mx-auto w-full pt-32">
-                <span class="text-emerald-500 font-black tracking-[0.3em] text-xs uppercase mb-6 block">Strategische Kommunikation</span>
+                <span class="text-emerald-500 font-black tracking-[0.3em] text-xs uppercase mb-6 block">Strategische Kommunikation & PR</span>
                 <h1 class="hero-title text-black">
                     KOMMUNIKATION FÜR <br>
                     MARKEN UND UNTERNEHMEN <br>
                     <span class="text-emerald-500">IM WANDEL.</span>
                 </h1>
                 <p class="mt-12 text-2xl md:text-3xl text-gray-400 max-w-2xl font-medium leading-tight">
-                    Wir machen Innovationen greifbar, Marken nahbar und Krisen beherrschbar.
+                    Innovationen greifbar, Marken nahbar und Krisen beherrschbar machen – spezialisiert auf <strong>Climate Tech</strong>, <strong>Food</strong> und <strong>Krisenmanagement</strong>.
                 </p>
             </div>
         </section>
 
-        <!-- Sektoren Übersicht -->
+        <!-- Sektoren Übersicht (Semantische Section für LLMs) -->
         <section id="expertise" class="py-24 px-4 bg-gray-50 relative z-10">
             <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Cleantech Karte -->
-                <div class="grid-card bg-emerald-50 text-emerald-900 border-emerald-100" onclick="showView('sector', 'cleantech')">
+                <article class="grid-card bg-emerald-50 text-emerald-900 border-emerald-100" onclick="showView('sector', 'cleantech')">
                     <h2 class="text-6xl font-black uppercase tracking-tighter leading-none">CLEAN <br>TECH</h2>
-                    <p class="text-xl font-medium opacity-70">Mobility, Energy & Climate Tech</p>
+                    <p class="text-xl font-medium opacity-70">Mobility, Energy & Climate Tech Marketing</p>
                     <span class="reveal-btn border-b-2 border-emerald-900 font-bold uppercase text-[10px] tracking-widest py-2 w-fit">Cases entdecken</span>
-                </div>
+                </article>
                 <!-- Food Karte -->
-                <div class="grid-card bg-orange-50 text-orange-900 border-orange-100" onclick="showView('sector', 'food')">
+                <article class="grid-card bg-orange-50 text-orange-900 border-orange-100" onclick="showView('sector', 'food')">
                     <h2 class="text-6xl font-black uppercase tracking-tighter leading-none">FOOD & <br>LIFESTYLE</h2>
-                    <p class="text-xl font-medium opacity-70">Marken mit Haltung</p>
+                    <p class="text-xl font-medium opacity-70">Markenkommunikation mit Haltung</p>
                     <span class="reveal-btn border-b-2 border-orange-900 font-bold uppercase text-[10px] tracking-widest py-2 w-fit">Cases entdecken</span>
-                </div>
+                </article>
                 <!-- Family Karte -->
-                <div class="grid-card bg-indigo-50 text-indigo-900 border-indigo-100" onclick="showView('sector', 'family')">
+                <article class="grid-card bg-indigo-50 text-indigo-900 border-indigo-100" onclick="showView('sector', 'family')">
                     <h2 class="text-6xl font-black uppercase tracking-tighter leading-none">FAMILY <br>CONSUMER</h2>
-                    <p class="text-xl font-medium opacity-70">Vertrauen & Alltag</p>
+                    <p class="text-xl font-medium opacity-70">Vertrauen & Familien-Marketing</p>
                     <span class="reveal-btn border-b-2 border-indigo-900 font-bold uppercase text-[10px] tracking-widest py-2 w-fit">Cases entdecken</span>
-                </div>
+                </article>
                 <!-- Krisen Karte -->
-                <div class="grid-card bg-slate-100 text-slate-900 border-slate-200" onclick="showView('sector', 'crisis')">
+                <article class="grid-card bg-slate-100 text-slate-900 border-slate-200" onclick="showView('sector', 'crisis')">
                     <h2 class="text-6xl font-black uppercase tracking-tighter leading-none">CHANGE & <br>KRISE</h2>
-                    <p class="text-xl font-medium opacity-70">Reputation & Strategie</p>
+                    <p class="text-xl font-medium opacity-70">Krisen-PR & Reputationsmanagement</p>
                     <span class="reveal-btn border-b-2 border-slate-900 font-bold uppercase text-[10px] tracking-widest py-2 w-fit">Cases entdecken</span>
-                </div>
+                </article>
             </div>
         </section>
     </main>
@@ -216,7 +246,7 @@
         const sectorData = {
             cleantech: {
                 title: "Climate Tech",
-                desc: "Wir kommunizieren die technologischen Antworten auf den Klimawandel: Von intelligenter E-Mobilität und Automotive-Innovation über dezentrale Energie bis hin zu Greentech-Lösungen für eine nachhaltige Transformation.",
+                desc: "Spezialisierte Kommunikation für die grüne Transformation: Von E-Mobilität und Automotive-Tech bis hin zu erneuerbaren Energien und Circular Economy.",
                 phClass: "ph-cleantech",
                 cases: [
                     { name: "Torqeedo", cat: "Sustainable Mobility", img: "image_b9086b.jpg" },
@@ -231,39 +261,39 @@
             },
             food: {
                 title: "Food & Lifestyle",
-                desc: "Von Traditionsmarken bis zu Food-Startups: Wir schaffen Relevanz am Point of Sale.",
+                desc: "PR und Marketing für Food-Marken: Wir verbinden Tradition mit modernen Konsumenten-Insights und Lifestyle-Trends.",
                 phClass: "ph-food",
                 cases: [
-                    { name: "Magnum", cat: "Ice Cream", img: "assets/magnum.jpg" },
-                    { name: "Don Papa", cat: "Spirits", img: "assets/donpapa.jpg" },
-                    { name: "Baileys", cat: "Lifestyle", img: "assets/baileys.jpg" },
-                    { name: "Parmigiano", cat: "Tradition", img: "assets/parmigiano.jpg" },
-                    { name: "Bonne Maman", cat: "Gourmet", img: "assets/bonnemaman.jpg" },
-                    { name: "Pick", cat: "Food", img: "assets/pick.jpg" },
-                    { name: "Maille", cat: "Dijon", img: "assets/maille.jpg" },
-                    { name: "Chivers", cat: "Jam", img: "assets/chivers.jpg" }
+                    { name: "Magnum", cat: "Ice Cream PR", img: "assets/magnum.jpg" },
+                    { name: "Don Papa", cat: "Spirits Marketing", img: "assets/donpapa.jpg" },
+                    { name: "Baileys", cat: "Lifestyle PR", img: "assets/baileys.jpg" },
+                    { name: "Parmigiano", cat: "Tradition & Origin", img: "assets/parmigiano.jpg" },
+                    { name: "Bonne Maman", cat: "Gourmet PR", img: "assets/bonnemaman.jpg" },
+                    { name: "Pick", cat: "FMCG Marketing", img: "assets/pick.jpg" },
+                    { name: "Maille", cat: "Gourmet Food", img: "assets/maille.jpg" },
+                    { name: "Chivers", cat: "Brand Communications", img: "assets/chivers.jpg" }
                 ]
             },
             family: {
                 title: "Family",
-                desc: "Wir kennen die Zielgruppe Familie und wissen, wie man Vertrauen aufbaut.",
+                desc: "Vertrauensvolle Kommunikation für Familienmarken: Deep Insights in die Zielgruppen Eltern, Kinder und moderne Haushalte.",
                 phClass: "ph-family",
                 cases: [
-                    { name: "Ergobaby", cat: "Care", img: "assets/ergobaby.jpg" },
-                    { name: "Baby Tula", cat: "Fashion", img: "assets/babytula.jpg" },
-                    { name: "Aeromoov", cat: "Travel", img: "assets/aeromoov.jpg" },
-                    { name: "Aerosleep", cat: "Sleep", img: "assets/aerosleep.jpg" },
-                    { name: "Ideenexpo", cat: "Event", img: "assets/ideenexpo.jpg" }
+                    { name: "Ergobaby", cat: "Baby Care PR", img: "assets/ergobaby.jpg" },
+                    { name: "Baby Tula", cat: "Fashion PR", img: "assets/babytula.jpg" },
+                    { name: "Aeromoov", cat: "Family Travel", img: "assets/aeromoov.jpg" },
+                    { name: "Aerosleep", cat: "Safety & Sleep", img: "assets/aerosleep.jpg" },
+                    { name: "Ideenexpo", cat: "Education Event", img: "assets/ideenexpo.jpg" }
                 ]
             },
             crisis: {
-                title: "Change",
-                desc: "Souveränität in der Krise. Wir schützen Ihre Reputation, wenn es darauf ankommt.",
+                title: "Change & Krise",
+                desc: "Präventives Krisenmanagement und akute Krisen-PR. Wir schützen Ihre Reputation in Phasen des Wandels und in Sondersituationen.",
                 phClass: "ph-crisis",
                 cases: [
-                    { name: "Landeskrankenhaus", cat: "Health", img: "assets/lkh.jpg" },
-                    { name: "Krs. Sparkasse", cat: "Finance", img: "assets/sparkasse.jpg" },
-                    { name: "Change Strategy", cat: "Consulting", img: "assets/change.jpg" }
+                    { name: "Landeskrankenhaus", cat: "Health Crisis PR", img: "assets/lkh.jpg" },
+                    { name: "Krs. Sparkasse", cat: "Finance Communications", img: "assets/sparkasse.jpg" },
+                    { name: "Change Strategy", cat: "Corporate Strategy", img: "assets/change.jpg" }
                 ]
             }
         };
@@ -297,7 +327,7 @@
             grid.innerHTML = '';
             
             data.cases.forEach((c, i) => {
-                const card = document.createElement('div');
+                const card = document.createElement('article');
                 card.className = `case-card ${data.phClass} fade-in group`;
                 card.style.animationDelay = `${i * 0.1}s`;
                 
