@@ -1,7 +1,8 @@
+<!DOCTYPE html>
+<html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>drp | Strategic Communications Agency</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO & Search Engine Optimization -->
     <title>drp | Strategische Kommunikationsagentur für Cleantech, Food & Krise</title>
@@ -31,22 +32,143 @@
     }
     </script>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-<style>
-@@ -141,59 +169,61 @@
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap');
+        
+        :root {
+            --color-emerald: #10b981;
+            --color-orange: #f97316;
+            --color-indigo: #6366f1;
+            --color-slate: #1e293b;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #000;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .logo-text {
+            font-weight: 900;
+            font-size: 1.75rem;
+            letter-spacing: -0.06em;
+            cursor: pointer;
+        }
+
+        .brand-marker {
+            color: #10b981;
+            margin-right: 2px;
+        }
+
+        .hero-title {
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: -0.05em;
+            font-size: clamp(3rem, 8vw, 7.5rem);
+            text-transform: uppercase;
+        }
+
+        .grid-card {
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            min-height: 520px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 3.5rem;
+            border-radius: 1.5rem;
+            border: 1px solid rgba(0,0,0,0.05);
+            cursor: pointer;
+            z-index: 20;
+        }
+
+        .grid-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px -12px rgba(0,0,0,0.15);
+        }
+
+        .case-card {
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            min-height: 420px;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            cursor: pointer;
+            overflow: hidden;
+            color: #000;
+            background-color: #f8fafc;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .case-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1;
+            opacity: 0.9;
+        }
+
+        .case-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.1) 100%);
+            z-index: 2;
+        }
+
+        .case-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        .case-card:hover .case-bg {
+            transform: scale(1.08);
+            opacity: 1;
+        }
+
+        .nav-link {
+            font-weight: 800;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+        }
+
+        .view-hidden { 
+            display: none !important; 
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .ph-cleantech { border-top: 6px solid var(--color-emerald); }
+        .ph-food { border-top: 6px solid var(--color-orange); }
+        .ph-family { border-top: 6px solid var(--color-indigo); }
+        .ph-crisis { border-top: 6px solid var(--color-slate); }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 3.5rem; }
+            .grid-card { min-height: 400px; padding: 2rem; }
+        }
+    </style>
+</head>
 <body class="bg-white">
 
-<!-- Navigation -->
-    <nav class="fixed w-full z-[100] px-8 py-8 flex items-center justify-between bg-white/90 backdrop-blur-lg border-b border-black/5">
-        <div class="logo-text" onclick="showView('home')">
-            <span class="brand-marker">//</span>drp
-        </div>
-        <div class="hidden md:flex gap-12 items-center">
-            <a href="javascript:void(0)" onclick="showView('home', 'expertise')" class="nav-link text-black hover:text-emerald-500 transition-colors">Expertise</a>
-            <a href="#contact" class="nav-link px-7 py-3 bg-black text-white rounded-full hover:bg-emerald-500 transition-all shadow-xl shadow-black/10">Kontakt</a>
-        </div>
-    </nav>
+    <!-- Navigation -->
     <header>
         <nav class="fixed w-full z-[100] px-8 py-8 flex items-center justify-between bg-white/90 backdrop-blur-lg border-b border-black/5">
             <div class="logo-text" onclick="showView('home')">
@@ -59,92 +181,89 @@
         </nav>
     </header>
 
-<!-- HOME VIEW -->
-<main id="home-view" class="fade-in">
-<section class="min-h-screen flex flex-col justify-center px-8 relative">
-<div class="max-w-[1600px] mx-auto w-full pt-32">
-                <span class="text-emerald-500 font-black tracking-[0.3em] text-xs uppercase mb-6 block">Strategische Kommunikation</span>
+    <!-- HOME VIEW -->
+    <main id="home-view" class="fade-in">
+        <section class="min-h-screen flex flex-col justify-center px-8 relative">
+            <div class="max-w-[1600px] mx-auto w-full pt-32">
                 <span class="text-emerald-500 font-black tracking-[0.3em] text-xs uppercase mb-6 block">Strategische Kommunikation & PR</span>
-<h1 class="hero-title text-black">
-KOMMUNIKATION FÜR <br>
-MARKEN UND UNTERNEHMEN <br>
-<span class="text-emerald-500">IM WANDEL.</span>
-</h1>
-<p class="mt-12 text-2xl md:text-3xl text-gray-400 max-w-2xl font-medium leading-tight">
-                    Wir machen Innovationen greifbar, Marken nahbar und Krisen beherrschbar.
+                <h1 class="hero-title text-black">
+                    KOMMUNIKATION FÜR <br>
+                    MARKEN UND UNTERNEHMEN <br>
+                    <span class="text-emerald-500">IM WANDEL.</span>
+                </h1>
+                <p class="mt-12 text-2xl md:text-3xl text-gray-400 max-w-2xl font-medium leading-tight">
                     Innovationen greifbar, Marken nahbar und Krisen beherrschbar machen – spezialisiert auf <strong>Climate Tech</strong>, <strong>Food</strong> und <strong>Krisenmanagement</strong>.
-</p>
-</div>
-</section>
+                </p>
+            </div>
+        </section>
 
-        <!-- Sektoren Übersicht -->
         <!-- Sektoren Übersicht (Semantische Section für LLMs) -->
-<section id="expertise" class="py-24 px-4 bg-gray-50 relative z-10">
-<div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
-<!-- Cleantech Karte -->
-                <div class="grid-card bg-emerald-50 text-emerald-900 border-emerald-100" onclick="showView('sector', 'cleantech')">
+        <section id="expertise" class="py-24 px-4 bg-gray-50 relative z-10">
+            <div class="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Cleantech Karte -->
                 <article class="grid-card bg-emerald-50 text-emerald-900 border-emerald-100" onclick="showView('sector', 'cleantech')">
-<h2 class="text-6xl font-black uppercase tracking-tighter leading-none">CLEAN <br>TECH</h2>
-                    <p class="text-xl font-medium opacity-70">Mobility, Energy & Climate Tech</p>
+                    <h2 class="text-6xl font-black uppercase tracking-tighter leading-none">CLEAN <br>TECH</h2>
                     <p class="text-xl font-medium opacity-70">Mobility, Energy & Climate Tech Marketing</p>
-<span class="reveal-btn border-b-2 border-emerald-900 font-bold uppercase text-[10px] tracking-widest py-2 w-fit">Cases entdecken</span>
-                </div>
+                    <span class="reveal-btn border-b-2 border-emerald-900 font-bold uppercase text-[10px] tracking-widest py-2 w-fit">Cases entdecken</span>
                 </article>
-<!-- Food Karte -->
-                <div class="grid-card bg-orange-50 text-orange-900 border-orange-100" onclick="showView('sector', 'food')">
+                <!-- Food Karte -->
                 <article class="grid-card bg-orange-50 text-orange-900 border-orange-100" onclick="showView('sector', 'food')">
-<h2 class="text-6xl font-black uppercase tracking-tighter leading-none">FOOD & <br>LIFESTYLE</h2>
-                    <p class="text-xl font-medium opacity-70">Marken mit Haltung</p>
+                    <h2 class="text-6xl font-black uppercase tracking-tighter leading-none">FOOD & <br>LIFESTYLE</h2>
                     <p class="text-xl font-medium opacity-70">Markenkommunikation mit Haltung</p>
-<span class="reveal-btn border-b-2 border-orange-900 font-bold uppercase text-[10px] tracking-widest py-2 w-fit">Cases entdecken</span>
-                </div>
+                    <span class="reveal-btn border-b-2 border-orange-900 font-bold uppercase text-[10px] tracking-widest py-2 w-fit">Cases entdecken</span>
                 </article>
-<!-- Family Karte -->
-                <div class="grid-card bg-indigo-50 text-indigo-900 border-indigo-100" onclick="showView('sector', 'family')">
+                <!-- Family Karte -->
                 <article class="grid-card bg-indigo-50 text-indigo-900 border-indigo-100" onclick="showView('sector', 'family')">
-<h2 class="text-6xl font-black uppercase tracking-tighter leading-none">FAMILY <br>CONSUMER</h2>
-                    <p class="text-xl font-medium opacity-70">Vertrauen & Alltag</p>
+                    <h2 class="text-6xl font-black uppercase tracking-tighter leading-none">FAMILY <br>CONSUMER</h2>
                     <p class="text-xl font-medium opacity-70">Vertrauen & Familien-Marketing</p>
-<span class="reveal-btn border-b-2 border-indigo-900 font-bold uppercase text-[10px] tracking-widest py-2 w-fit">Cases entdecken</span>
-                </div>
+                    <span class="reveal-btn border-b-2 border-indigo-900 font-bold uppercase text-[10px] tracking-widest py-2 w-fit">Cases entdecken</span>
                 </article>
-<!-- Krisen Karte -->
-                <div class="grid-card bg-slate-100 text-slate-900 border-slate-200" onclick="showView('sector', 'crisis')">
+                <!-- Krisen Karte -->
                 <article class="grid-card bg-slate-100 text-slate-900 border-slate-200" onclick="showView('sector', 'crisis')">
-<h2 class="text-6xl font-black uppercase tracking-tighter leading-none">CHANGE & <br>KRISE</h2>
-                    <p class="text-xl font-medium opacity-70">Reputation & Strategie</p>
+                    <h2 class="text-6xl font-black uppercase tracking-tighter leading-none">CHANGE & <br>KRISE</h2>
                     <p class="text-xl font-medium opacity-70">Krisen-PR & Reputationsmanagement</p>
-<span class="reveal-btn border-b-2 border-slate-900 font-bold uppercase text-[10px] tracking-widest py-2 w-fit">Cases entdecken</span>
-                </div>
+                    <span class="reveal-btn border-b-2 border-slate-900 font-bold uppercase text-[10px] tracking-widest py-2 w-fit">Cases entdecken</span>
                 </article>
-</div>
-</section>
-</main>
-@@ -216,7 +246,7 @@ <h1 id="sector-title" class="text-7xl md:text-9xl font-black uppercase tracking-
-const sectorData = {
-cleantech: {
-title: "Climate Tech",
-                desc: "Wir kommunizieren die technologischen Antworten auf den Klimawandel: Von intelligenter E-Mobilität und Automotive-Innovation über dezentrale Energie bis hin zu Greentech-Lösungen für eine nachhaltige Transformation.",
+            </div>
+        </section>
+    </main>
+
+    <!-- SECTOR VIEW -->
+    <main id="sector-view" class="view-hidden pt-40 px-8 pb-24 fade-in">
+        <div class="max-w-[1600px] mx-auto">
+            <div class="mb-20">
+                <button onclick="showView('home', 'expertise')" class="text-[10px] font-black uppercase tracking-[0.3em] text-emerald-600 mb-8 flex items-center gap-3 group">
+                    <i class="fa-solid fa-arrow-left group-hover:-translate-x-2 transition-transform"></i> Zurück zur Expertise
+                </button>
+                <h1 id="sector-title" class="text-7xl md:text-9xl font-black uppercase tracking-tighter leading-none mb-6">SEKTOR</h1>
+                <p id="sector-desc" class="text-2xl md:text-4xl font-medium text-gray-400 max-w-4xl leading-tight"></p>
+            </div>
+            <div id="case-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"></div>
+        </div>
+    </main>
+
+    <script>
+        const sectorData = {
+            cleantech: {
+                title: "Climate Tech",
                 desc: "Spezialisierte Kommunikation für die grüne Transformation: Von E-Mobilität und Automotive-Tech bis hin zu erneuerbaren Energien und Circular Economy.",
-phClass: "ph-cleantech",
-cases: [
-{ name: "Torqeedo", cat: "Sustainable Mobility", img: "image_b9086b.jpg" },
-@@ -231,39 +261,39 @@ <h1 id="sector-title" class="text-7xl md:text-9xl font-black uppercase tracking-
-},
-food: {
-title: "Food & Lifestyle",
-                desc: "Von Traditionsmarken bis zu Food-Startups: Wir schaffen Relevanz am Point of Sale.",
+                phClass: "ph-cleantech",
+                cases: [
+                    { name: "Torqeedo", cat: "Sustainable Mobility", img: "image_b9086b.jpg" },
+                    { name: "Fastned", cat: "Infrastructure & Energy", img: "assets/fastned.jpg" },
+                    { name: "Hy2gen", cat: "Green Hydrogen", img: "assets/hy2gen.jpg" },
+                    { name: "GAC", cat: "Automotive Tech", img: "assets/gac.jpg" },
+                    { name: "Rebuy", cat: "Circular Economy", img: "assets/rebuy.jpg" },
+                    { name: "Choco", cat: "Efficiency Tech", img: "assets/choco.jpg" },
+                    { name: "Sono Motors", cat: "Solar Mobility", img: "assets/sono.jpg" },
+                    { name: "BRP", cat: "Electric Adventure", img: "assets/brp.jpg" }
+                ]
+            },
+            food: {
+                title: "Food & Lifestyle",
                 desc: "PR und Marketing für Food-Marken: Wir verbinden Tradition mit modernen Konsumenten-Insights und Lifestyle-Trends.",
-phClass: "ph-food",
-cases: [
-                    { name: "Magnum", cat: "Ice Cream", img: "assets/magnum.jpg" },
-                    { name: "Don Papa", cat: "Spirits", img: "assets/donpapa.jpg" },
-                    { name: "Baileys", cat: "Lifestyle", img: "assets/baileys.jpg" },
-                    { name: "Parmigiano", cat: "Tradition", img: "assets/parmigiano.jpg" },
-                    { name: "Bonne Maman", cat: "Gourmet", img: "assets/bonnemaman.jpg" },
-                    { name: "Pick", cat: "Food", img: "assets/pick.jpg" },
-                    { name: "Maille", cat: "Dijon", img: "assets/maille.jpg" },
-                    { name: "Chivers", cat: "Jam", img: "assets/chivers.jpg" }
+                phClass: "ph-food",
+                cases: [
                     { name: "Magnum", cat: "Ice Cream PR", img: "assets/magnum.jpg" },
                     { name: "Don Papa", cat: "Spirits Marketing", img: "assets/donpapa.jpg" },
                     { name: "Baileys", cat: "Lifestyle PR", img: "assets/baileys.jpg" },
@@ -153,47 +272,81 @@ cases: [
                     { name: "Pick", cat: "FMCG Marketing", img: "assets/pick.jpg" },
                     { name: "Maille", cat: "Gourmet Food", img: "assets/maille.jpg" },
                     { name: "Chivers", cat: "Brand Communications", img: "assets/chivers.jpg" }
-]
-},
-family: {
-title: "Family",
-                desc: "Wir kennen die Zielgruppe Familie und wissen, wie man Vertrauen aufbaut.",
+                ]
+            },
+            family: {
+                title: "Family",
                 desc: "Vertrauensvolle Kommunikation für Familienmarken: Deep Insights in die Zielgruppen Eltern, Kinder und moderne Haushalte.",
-phClass: "ph-family",
-cases: [
-                    { name: "Ergobaby", cat: "Care", img: "assets/ergobaby.jpg" },
-                    { name: "Baby Tula", cat: "Fashion", img: "assets/babytula.jpg" },
-                    { name: "Aeromoov", cat: "Travel", img: "assets/aeromoov.jpg" },
-                    { name: "Aerosleep", cat: "Sleep", img: "assets/aerosleep.jpg" },
-                    { name: "Ideenexpo", cat: "Event", img: "assets/ideenexpo.jpg" }
+                phClass: "ph-family",
+                cases: [
                     { name: "Ergobaby", cat: "Baby Care PR", img: "assets/ergobaby.jpg" },
                     { name: "Baby Tula", cat: "Fashion PR", img: "assets/babytula.jpg" },
                     { name: "Aeromoov", cat: "Family Travel", img: "assets/aeromoov.jpg" },
                     { name: "Aerosleep", cat: "Safety & Sleep", img: "assets/aerosleep.jpg" },
                     { name: "Ideenexpo", cat: "Education Event", img: "assets/ideenexpo.jpg" }
-]
-},
-crisis: {
-                title: "Change",
-                desc: "Souveränität in der Krise. Wir schützen Ihre Reputation, wenn es darauf ankommt.",
+                ]
+            },
+            crisis: {
                 title: "Change & Krise",
                 desc: "Präventives Krisenmanagement und akute Krisen-PR. Wir schützen Ihre Reputation in Phasen des Wandels und in Sondersituationen.",
-phClass: "ph-crisis",
-cases: [
-                    { name: "Landeskrankenhaus", cat: "Health", img: "assets/lkh.jpg" },
-                    { name: "Krs. Sparkasse", cat: "Finance", img: "assets/sparkasse.jpg" },
-                    { name: "Change Strategy", cat: "Consulting", img: "assets/change.jpg" }
+                phClass: "ph-crisis",
+                cases: [
                     { name: "Landeskrankenhaus", cat: "Health Crisis PR", img: "assets/lkh.jpg" },
                     { name: "Krs. Sparkasse", cat: "Finance Communications", img: "assets/sparkasse.jpg" },
                     { name: "Change Strategy", cat: "Corporate Strategy", img: "assets/change.jpg" }
-]
-}
-};
-@@ -297,7 +327,7 @@ <h1 id="sector-title" class="text-7xl md:text-9xl font-black uppercase tracking-
-grid.innerHTML = '';
+                ]
+            }
+        };
 
-data.cases.forEach((c, i) => {
-                const card = document.createElement('div');
+        function showView(view, sid) {
+            const homeView = document.getElementById('home-view');
+            const sectorView = document.getElementById('sector-view');
+            
+            if (view === 'home') {
+                homeView.classList.remove('view-hidden');
+                sectorView.classList.add('view-hidden');
+                if (sid === 'expertise') {
+                    setTimeout(() => {
+                        const expertiseEl = document.getElementById('expertise');
+                        if(expertiseEl) expertiseEl.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                }
+            } else {
+                homeView.classList.add('view-hidden');
+                sectorView.classList.remove('view-hidden');
+                loadSector(sid);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function loadSector(id) {
+            const data = sectorData[id];
+            document.getElementById('sector-title').innerText = data.title;
+            document.getElementById('sector-desc').innerText = data.desc;
+            const grid = document.getElementById('case-grid');
+            grid.innerHTML = '';
+            
+            data.cases.forEach((c, i) => {
                 const card = document.createElement('article');
-card.className = `case-card ${data.phClass} fade-in group`;
-card.style.animationDelay = `${i * 0.1}s`;
+                card.className = `case-card ${data.phClass} fade-in group`;
+                card.style.animationDelay = `${i * 0.1}s`;
+                
+                const bgStyle = `background-image: url('${c.img}'), url('https://placehold.co/800x600/f1f5f9/94a3b8?text=${encodeURIComponent(c.name)}')`;
+                
+                card.innerHTML = `
+                    <div class="case-bg" style="${bgStyle}"></div>
+                    <div class="case-overlay"></div>
+                    <div class="case-content">
+                        <span class="text-[10px] font-black uppercase tracking-[0.2em] text-gray-500 mb-2 block">${c.cat}</span>
+                        <h3 class="text-3xl font-black uppercase tracking-tighter leading-none text-black">${c.name}</h3>
+                        <div class="mt-6 flex items-center gap-2 text-[9px] font-bold uppercase tracking-widest text-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Details ansehen <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
